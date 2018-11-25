@@ -1,0 +1,28 @@
+
+
+mongo: database = usersearches
+
+    collection = searches
+-----------------------------------------
+
+every 30 sec 
+    - check if there is an ad array in searches database
+        - if true
+            - randomly select an ad from the array
+          
+        -if false
+            - display another random ad from database
+
+on page load
+    - select a random ad from database
+
+-------------------------------------------------
+every 30 sec 
+    - check if there is anything in .state.adArray
+        - if true
+            - randomly select an ad from the array
+          
+        -if false
+            - display another random ad from database
+
+
