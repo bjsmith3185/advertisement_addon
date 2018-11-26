@@ -6,6 +6,7 @@ const AdminForm = (props) => (
 <p>Enter an advertisement below:</p>
 <form className="form">
   <div>Enter the name of the company</div>
+  <div>{props.title}</div>
   <input
     value={props.company}
     name="company"

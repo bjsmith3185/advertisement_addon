@@ -22,7 +22,13 @@ this page should show a list of all advertisements in the collection
     - line 11, error says db.Advertisements.findAll not a function.
 
 
+______________________________________________
 
+adminpage,
+    - show ad data
+        - number of times each company ad is used
+        - number of times each add is matched to a search
+        - show all searches from user
 
 
 

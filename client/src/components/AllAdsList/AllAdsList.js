@@ -1,5 +1,5 @@
 import React from "react";
-import "./SearchBody.css";
+import "./AllAdsList.css";
 
 const AllAdsList = (props) => (
   <ul>
@@ -7,9 +7,9 @@ const AllAdsList = (props) => (
     <li key={company.company}>
       <div>This is a company advertisement</div>
       <div> {company.company}
-      <button onClick={props.remove}>Delete</button></div>
+      <button onClick={() => {props.removeAd(company.company)}}>Delete</button></div>
      <div> {company.keywords}</div>
-     <button onClick={props.updateCompany}>Update</button>
+     <button onClick={() => {props.modifyAd(company.company)}}>Update</button>
     </li>
   ))}
 </ul>

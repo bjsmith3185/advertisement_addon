@@ -43,11 +43,22 @@ export default {
     return axios.post("/api/admin", data)
   },
 
-  updateAd: function(data) {
+  findOneAd: function(data) {
+    console.log("this is the findOneAd")
+    console.log(data);
 
   },
 
+  updateAd: function(data, company) {
+    console.log("this is the updateAd")
+    console.log(data);
+    return axios.update("/api/admin/" + company, data);
+  },
+
   deleteAd: function(data) {
+    console.log("this is the deleteAd() API.js")
+    console.log(data);
+    return axios.delete("/api/admin/" + data)
 
   },
 
