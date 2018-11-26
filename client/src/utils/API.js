@@ -35,8 +35,12 @@ export default {
 
   },
 
-  createNewAd: function(data) {
+// below is ("/api/admin")
 
+  createNewAd: function(data) {
+    console.log("this is the new ad")
+    console.log(data);
+    return axios.post("/api/admin", data)
   },
 
   updateAd: function(data) {
@@ -51,7 +55,7 @@ export default {
     return axios.get("/api/admin");
   },
 
-
+//---------------------------
 
 
 

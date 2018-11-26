@@ -17,7 +17,6 @@ class AllAds extends Component {
 this.allAds();
   };
 
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -40,13 +39,12 @@ this.allAds();
 
   };
 
-
-
   allAds = () => {
    
    API.showAllAds()
    .then(res => {
-
+    console.log("this is the return for getAllAds")
+    console.log(res.data)
     this.setState({
       allAds: res.data
     })

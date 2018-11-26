@@ -1,8 +1,36 @@
 
+Search Tracker with personalized advertisements
+
+
+issue:
+
+http://localhost:3000/admin/all
+
+this page should show a list of all advertisements in the collection
+
+
+- file src/pages/AllAds/AllAds.js
+    - calls for 'findall from collection advertisements
+
+- file src/utils/API.js
+    - line 54,  showAllAds(), axios.get to server
+
+- file routes/api/admin.js
+    - line 7  .get(adminController.findAll)
+
+- file controllers/adminController.js
+    - line 11, error says db.Advertisements.findAll not a function.
+
+
+
+
+
+
+------------------------------------------
 
 mongo: database = usersearches
 
-    collection = searches
+    collection = searches, advertisement, userads 
 -----------------------------------------
 
 every 30 sec 
@@ -24,5 +52,43 @@ every 30 sec
           
         -if false
             - display another random ad from database
+//===========================================================================
 
 
+
+
+
+- when the user hovers over a <div> the app will scrape the <div> for keywords. 
+- the data scraped will be saved into a database ( reference that <div> in some way).
+- if the user hovers on the div for a set time (5sec) the app will respond by sending stored data
+    in the form of an advertisement to the client-side.
+
+
+- the information returned to the client-side can be in a popup/sidebar
+
+- the databse of 'advertisements' will be saved using keywords "trucks, toys, etc"
+- the scraper will search for keywords on the page and try to match up one or more of 
+    those keywords with those stored in the 'advertisements' database.
+
+
+- a way to track how many times an advertisement was used would be helpful
+
+
+- Maybe a MERN app
+
+- try using a mongodb
+- use     to scrape the page
+
+
+//--------------------
+
+- a search bar at the top, enter a website
+-  the page will display that website and also scrape it for keywords
+have the homepage display a website on the left and the advserisement on the right
+
+//-------------------
+
+- create a search input box
+- the keywords entered are collected
+    - the left of page will display a box with that serach term
+    - the right of page will display a related ad.

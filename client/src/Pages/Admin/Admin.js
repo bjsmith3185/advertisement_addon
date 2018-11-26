@@ -37,7 +37,8 @@ class Admin extends Component {
       console.log("this is the keywords array");
       console.log(array)
 
-    API.saveAdvertisement({
+    // API.saveAdvertisement({
+      API.createNewAd({
       company: this.state.company,
       keywords: array,
     })

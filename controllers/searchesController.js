@@ -15,14 +15,17 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
+    console.log("is this getting called? create.")
     db.Searches
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
+    console.log("what is in here? should be the search term")
+    console.log(req.body.search)
     db.Searches
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ search: req.body.search }, req.body, {upsert: true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

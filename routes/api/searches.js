@@ -5,7 +5,8 @@ const searchesController = require("../../controllers/searchesController");
 
 router.route("/")
   .get(searchesController.findAll)
-  .post(searchesController.create);
+  // .post(searchesController.create);
+  .post(searchesController.update);
 
 
 

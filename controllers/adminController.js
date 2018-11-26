@@ -30,6 +30,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
+    console.log("this is update() in admincontroller.js")
+    console.log(req.params.id)
+    console.log(req.body)
     db.Advertisements
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
