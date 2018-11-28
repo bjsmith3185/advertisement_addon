@@ -8,13 +8,13 @@ module.exports = {
    console.log("!!!!!!!!")
 
    db.Advertisements
-      .findAll({})
+      .find({})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
 
-  findById: function (req, res) {
+  findByCompany: function (req, res) {
     db.Advertisements
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
@@ -31,18 +31,29 @@ module.exports = {
   },
   update: function (req, res) {
     console.log("this is update() in admincontroller.js")
-    console.log(req.params.id)
+    console.log(req.params.company)
     console.log(req.body)
     db.Advertisements
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .findOneAndUpdate({ company: req.params.company }, req.body, {upsert:true})
+      .then(dbModel => {
+        console.log("this is the return from update");
+        console.log(dbModel);
+        res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
+    console.log("this is the delete()")
+    console.log(req.params.company)
     db.Advertisements
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .deleteOne({company: req.params.company})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+
+      // .findById({ company: req.params.company })
+      // .then(dbModel => {
+      //   console.log(dbModel);
+      //   dbModel.remove()})
+      // .then(dbModel => res.json(dbModel))
+      // .catch(err => res.status(422).json(err));
   }
 };

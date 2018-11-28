@@ -45,9 +45,14 @@ class AllAds extends Component {
 
     if(this.state.company === "") {
       newCompany = this.state.previousCompany;
+    } else {
+      newCompany = this.state.company;
     }
+
     if (this.state.keywords === "") {
       newKeywords = this.state.previousKeywords;
+    } else {
+      newKeywords = array;
     }
 
     let data = {
@@ -55,6 +60,7 @@ class AllAds extends Component {
       keywords: newKeywords,
     }
 
+      // this updates: however, it replaces all prev keywords with the newly entered keywords. may be able to use $push to add it.
 
     console.log(data)
     API.updateAd(data, this.state.previousCompany)
@@ -62,7 +68,7 @@ class AllAds extends Component {
       console.log("this is the return for updateAd")
       console.log(res.data)
       this.setState({
-        allAds: res.data,
+        allAds: "",
 
         update: false,
         company: "",
@@ -71,6 +77,7 @@ class AllAds extends Component {
         previousKeywords: "",
 
       });
+      this.allAds();
 
     })
     .catch(err => console.log(err));
@@ -99,7 +106,7 @@ class AllAds extends Component {
     console.log("this is the company to remove: " + company)
     // let data = { company: company};
     // console.log(data)
-    API.deleteAd(data)
+    API.deleteAd(company)
       .then(res => {
         console.log("this is the return for removeAd")
         console.log(res.data)
@@ -169,7 +176,7 @@ class AllAds extends Component {
         {/* <AdminNav  allAds={this.allAds} /> */}
         <br />
 
-        <div>All Ads on file</div>
+        <div>?????</div>
 
         <div className="row">
           <div className="col-12">
@@ -177,9 +184,9 @@ class AllAds extends Component {
             {this.state.update ? (
               <div>
               <div>Company Name: {this.state.previousCompany}</div>
-              <div>Current Keywords: {this.state.previousKeywords}</div>
+              <div>Current Keywords: {this.state.previousKeywords.join(', ')}</div>
               <AdminForm 
-                title={"Enter the information to change below"}
+                // title={"Enter the information to change below"}
                 company={this.state.company}
                 keywords={this.state.keywords}
                 handleInputChange={this.handleInputChange}

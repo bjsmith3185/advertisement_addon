@@ -79,15 +79,14 @@ class Admin extends Component {
 
   
 
-
-
-
   render() {
     return (
       <div>
         <AdminNav newAd={this.newAd} allAds={this.allAds}/>
         <br />
-
+        <div>
+        <button onClick={this.newAd}>Enter New Ad</button>
+        </div>
         <div className="row">
             <div className="col-6">
             {this.state.showEnterNewAd ? (
@@ -103,11 +102,11 @@ class Admin extends Component {
                 
           </div>
 
-          <div className="col-6">
+          {/* <div className="col-6">
             <div>  View Advertisement info</div>
             <div>{this.state.company}</div>
             <div>{this.state.keywords}</div>
-          </div>
+          </div> */}
         </div>
 
       

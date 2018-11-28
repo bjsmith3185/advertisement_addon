@@ -3,9 +3,9 @@ import React, { Component } from "react";
 const AdminForm = (props) => (
 
 <div>
-<p>Enter an advertisement below:</p>
+
 <form className="form">
-  <div>Enter the name of the company</div>
+  <div>Make changes to company name below.</div>
   <div>{props.title}</div>
   <input
     value={props.company}
@@ -15,13 +15,14 @@ const AdminForm = (props) => (
     placeholder="Company Name"
   />
   <br/>
- <div>Enter the keywords</div>
+ <div>Make changes to keywords below.</div>
   <input
     value={props.keywords}
     name="keywords"
     onChange={props.handleInputChange}
     type="text"
-    placeholder="Keywords"
+    // figure out how to display the current keywords in input box
+    placeholder={props.keywords}
   />
   <br />
  

@@ -8,8 +8,8 @@ router.route("/")
   .post(adminController.create);
 
 router
-  .route("/:id")
-  .get(adminController.findById)
+  .route("/:company")
+  .get(adminController.findByCompany)
   .put(adminController.update)
   .delete(adminController.remove);
 

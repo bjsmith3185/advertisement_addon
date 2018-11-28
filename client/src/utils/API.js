@@ -52,7 +52,7 @@ export default {
   updateAd: function(data, company) {
     console.log("this is the updateAd")
     console.log(data);
-    return axios.update("/api/admin/" + company, data);
+    return axios.put("/api/admin/" + company, data);
   },
 
   deleteAd: function(data) {

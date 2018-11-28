@@ -13,10 +13,14 @@ const AdminNav = (props) => (
 
     <div>
     
-      <button onClick={props.newAd}>Enter New Ad</button>
+      {/* <button onClick={props.newAd}>Enter New Ad</button> */}
       {/* <button onClick={props.allAds}>View All Ads</button> */}
      <a className="navbar-brand" href="/admin/all">
      Show All Ads
+    </a>
+
+    <a className="navbar-brand" href="/admin/business">
+     Business Data
     </a>
       
     </div>
