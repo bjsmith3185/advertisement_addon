@@ -11,16 +11,6 @@ import "./Business.css";
 // import 'react-dropdown/style.css';
 import MyDropdown from "../../components/MyDropdown/MyDropdown";
 
-// const options = [
-//   'one', 'two', 'three'
-// ];
-// const defaultOption = options[0];
-
-
-// get an array of the advertisements
-// drop down menu to select a company
-
-
 
 class Business extends Component {
 
@@ -44,54 +34,7 @@ class Business extends Component {
 
   };
 
-  handleChange = (event) => {
-    console.log("this is in handleChange")
-    console.log(event.target.value);
 
-
-      const { name, value } = event.target;
-      this.setState({
-        [name]: value
-      });
-      // this.findouttheState()
-
-    };
-
-    // findouttheState = () => {
-    //   if(this.state.value === "Kmart") {
-    //     console.log("the value of value: " + this.state.value)
-    //   } else {
-    //     console.log("the value of value is false")
-    //   }
-    // }
-
-    // let value = event.target.value;
-    // this.setState({
-    //   value: value
-    // })
-
-
-  handleSubmit(event) {
-    event.preventDefault();
-    // alert("your choice is: " + this.state.value);
-    console.log("!")
-    console.log(event)
-  };
-
-  // getCompanies = () => {
-  //   // const names = [];
-
-  //   let names = Object.keys(this.state.allAds);    
-  //   this.setState({
-  //     companies: names
-  //   })
-
-  // };
-
-  // onSelect = (option) => {
-  //   console.log('You selected ', option)
-  //   this.setState({selected: option})
-  // }
 
   componentDidMount = () => {
     this.allAds();
@@ -156,6 +99,10 @@ class Business extends Component {
       })
       .catch(err => console.log(err));
 
+  };
+
+  getData = (company) => {
+    console.log(`this is the company: ${company}.`)
   };
 
   showState = () => {
@@ -245,28 +192,33 @@ class Business extends Component {
   // };
   handleCheck = (e) => {
     alert(e.target);
-}
+  }
 
 
   render() {
     return (
       <div>
-        {/* <AdminNav  allAds={this.allAds} /> */}
-        <br />
+        <AdminNav />
 
-        <div>Business Data Page</div>
+        <div className="row">
+          <div className="col-4">
+            <ul>
+              {this.state.allAds.map(company => (
+                <li key={company.company}
+                >
+                  <div>{company.company}</div>
+                  <button onClick={() => this.getData(company.company)}>Get Data</button>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <MyDropdown allAds={this.state.allAds}/>
+          <div className="col-8">
+          </div>
 
- {/* <MyDropdown
-   allAds={this.state.allAds}
-   value={this.state.value}
-   handleChange={this.handleChange}
-   handleSubmit={this.handleSubmit}
-  //  handleCheck={this.handleCheck}
-  //  thisCompany={this.thisCompany}
-  /> */}
- 
+        </div>
+
+
 
       </div>
 
@@ -276,3 +228,58 @@ class Business extends Component {
 
 
 export default Business;
+
+
+
+
+
+
+
+// handleChange = (event) => {
+//   console.log("this is in handleChange")
+//   console.log(event.target.value);
+
+
+//     const { name, value } = event.target;
+//     this.setState({
+//       [name]: value
+//     });
+//     // this.findouttheState()
+
+//   };
+
+//   // findouttheState = () => {
+//   //   if(this.state.value === "Kmart") {
+//   //     console.log("the value of value: " + this.state.value)
+//   //   } else {
+//   //     console.log("the value of value is false")
+//   //   }
+//   // }
+
+//   // let value = event.target.value;
+//   // this.setState({
+//   //   value: value
+//   // })
+
+
+// handleSubmit(event) {
+//   event.preventDefault();
+//   // alert("your choice is: " + this.state.value);
+//   console.log("!")
+//   console.log(event)
+// };
+
+// // getCompanies = () => {
+// //   // const names = [];
+
+// //   let names = Object.keys(this.state.allAds);    
+// //   this.setState({
+// //     companies: names
+// //   })
+
+// // };
+
+// // onSelect = (option) => {
+// //   console.log('You selected ', option)
+// //   this.setState({selected: option})
+// // }
