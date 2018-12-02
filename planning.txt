@@ -2,6 +2,21 @@
 Search Tracker with personalized advertisements
 
 
+new routes:
+
+database-Controller folder
+    * advertisements collection
+    * searches collection
+    * specific user ads collection
+
+advertisements contoller
+
+
+
+
+
+
+------------------------------------------------------------
 issue:
 
 http://localhost:3000/admin/all

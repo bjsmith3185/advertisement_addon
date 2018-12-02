@@ -95,7 +95,7 @@ updateAd = (company) => {
   render() {
     return (
       <div>
-        {/* <AdminNav  allAds={this.allAds} /> */}
+        <AdminNav />
         <br />
 
         <div>All Ads on file</div>

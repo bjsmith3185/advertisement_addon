@@ -36,35 +36,43 @@ export default {
   },
 
 // below is ("/api/admin")
-
+//###########################################33
   createNewAd: function(data) {
     console.log("this is the new ad")
     console.log(data);
-    return axios.post("/api/admin", data)
+    return axios.post("/api/advertisements", data)
   },
-
-  findOneAd: function(data) {
-    console.log("this is the findOneAd")
-    console.log(data);
-
-  },
-
-  updateAd: function(data, company) {
-    console.log("this is the updateAd")
-    console.log(data);
-    return axios.put("/api/admin/" + company, data);
-  },
-
-  deleteAd: function(data) {
-    console.log("this is the deleteAd() API.js")
-    console.log(data);
-    return axios.delete("/api/admin/" + data)
-
-  },
+  //##############################################
 
   showAllAds: function() {
-    return axios.get("/api/admin");
+    return axios.get("/api/advertisements");
   },
+//#############################################
+
+deleteAd: function(company) {
+  console.log("this is the deleteAd() API.js")
+  console.log(company);
+  return axios.delete("/api/advertisements/" + company)
+
+},
+
+updateAd: function(data, company) {
+  console.log("this is the updateAd")
+  console.log(data);
+  return axios.put("/api/advertisements/" + company, data);
+},
+
+  findOneAd: function(company) {
+    console.log("this is the findOneAd")
+    console.log(company);
+    return axios.get("/api/advertisements/" + company);
+  },
+
+  
+
+  
+
+  
 
 //---------------------------
 
