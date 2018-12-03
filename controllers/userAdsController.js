@@ -3,39 +3,30 @@ const randomAd = require("../advertisementMaker/randomAd.js");
 
 
 module.exports = {
-  findAll: function (req, res) {
-    db.UserAds
+  findAll: function () {
+    return db.UserAds
       .find({})
-      .then(dbModel => {
-        // this function gets a random ad
-        let value = randomAd.randomizeAds(dbModel)
-        res.json(value)
-      })
-      .catch(err => res.status(422).json(err));
   },
-  findById: function (req, res) {
-    db.UserAds
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  findByAd: function (company) {
+    return db.UserAds
+      .findByAd(company)
   },
-  create: function (req, res) {
-    db.UserAds
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  create: function (company) {
+    // i can use the reference thing here and populate it
+    // this insert will be directly from another collection
+    console.log(`&&&&& company:`)
+    console.log(company)
+    return db.UserAds.create({
+      company: company.company,
+      keywords: company.keywords,
+    })
   },
-  update: function (req, res) {
-    db.UserAds
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  update: function (company, data) {
+    return db.UserAds
+      .findOneAndUpdate({ company: company }, data)
   },
-  remove: function (req, res) {
-    db.UserAds
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  remove: function (company) {
+    return db.UserAds
+    .findOneAndRemove({ company: company})
   }
 };

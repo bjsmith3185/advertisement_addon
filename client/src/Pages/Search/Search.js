@@ -18,7 +18,8 @@ class Search extends Component {
   };
 
   componentDidMount = () => {
-    this.initialShowAdvertisement();
+    this.findAd();
+    // this.initialShowAdvertisement();
   };
 
   loadSearches = () => {
@@ -48,11 +49,12 @@ class Search extends Component {
       search: this.state.searchTerm
     })
       .then(res => {
-
+        // console.log("********* is this an array?")
+        // console.log(res.data.search)
         this.loadSearches();
-        this.checkIfSearchMatchesAd();
+        this.checkIfSearchMatchesAd(res.data.search);
         this.setState({ searchTerm: "" });
-        this.personalizedAds();
+        // this.personalizedAds();
       })
       .catch(err => console.log(err));
 
@@ -66,47 +68,77 @@ class Search extends Component {
     // console.log(this.state.adArray);
   };
 
-  initialShowAdvertisement = () => {
-    API.getAdvertisement()
+  // initialShowAdvertisement = () => {
+  //   API.getAdvertisement()
+  //     .then(res => {
+  //       this.setState({
+  //         advertisement:
+  //           { company: res.data.company }
+  //       })
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+
+
+// this function will display an ad: random or custom
+  findAd = () => {
+    API.checkForCustomAds()
       .then(res => {
+        console.log("!!!!!! this tells if there are custom ads or not");
+        console.log(res);
         this.setState({
           advertisement:
             { company: res.data.company }
         })
-      })
-      .catch(err => console.log(err));
-  };
-
-
-  personalizedAds = () => {
-    API.getPersonalizedAds()
-      .then(res => {
-        if (res.data.company) {
-          this.setState({
-            advertisement:
-              { company: res.data.company }
-          })
-        } else {
-          console.log("there is no custom userads array")
-        }
 
       })
       .catch(err => console.log(err));
   };
 
-  // timer to reload the advertisements
-  timer = setInterval(() => {
-    console.log("loading a new ad")
-
-    this.personalizedAds();
-  }, 10000);
 
 
-  checkIfSearchMatchesAd = () => {
-    API.createUserAdArray()
-      .then(res => {})
+  // personalizedAds = () => {
+  //   API.getPersonalizedAds()
+  //     .then(res => {
+  //       if (res.data.company) {
+  //         this.setState({
+  //           advertisement:
+  //             { company: res.data.company }
+  //         })
+  //       } else {
+  //         console.log("there is no custom userads array")
+  //       }
+
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+
+
+
+
+
+// may need this one????
+
+  checkIfSearchMatchesAd = (term) => {
+    let data = {
+      term: term
+    }
+    API.compareSearchTermToAds(data)
+      .then(res => { })
       .catch(err => console.log(err));
   };
+
+
+
+
+  // // timer to reload the advertisements
+  //  timer = setInterval(() => {
+  //   console.log("loading a new ad")
+
+  //   this.personalizedAds();
+  // }, 10000);
 
 
   render() {

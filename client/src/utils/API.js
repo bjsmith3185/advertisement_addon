@@ -4,29 +4,44 @@ import axios from "axios";
 
 export default {
   // Gets all searches
-  getSearches: function() {
+  getSearches: function() {  // working
     return axios.get("/api/searches");
   },
   
   // Saves a search 
-  saveSearch: function(data) {
+  saveSearch: function(data) {  // working
     console.log("this is API.js saveSearch post request")
     console.log(data);
     return axios.post("/api/searches", data);
   },
 
-  getAdvertisement: function() {  // line 92
+
+  getAdvertisement: function() {  // working
     console.log("this is getAdvertisement.API.js");
-    return axios.get("/api/advertisements")
+    return axios.get("/api/displayads")
   },
 
-  createUserAdArray: function(data) {  //line 119
-    return axios.post("/api/advertisements", data)
+
+  compareSearchTermToAds: function(data) {  // working
+      console.log("checking for match:")
+      console.log(data)
+    return axios.post("/api/displayads", data)
   },
 
-  getPersonalizedAds: function() {  // line 106
-    return axios.get("/api/userAds")
+  // getPersonalizedAds: function() {  // in process
+  //   return axios.get("/api/displayads/new")
+  // },
+
+
+  checkForCustomAds: function() {  // displays ad: random or custom
+    return axios.get("/api/displayads/check")
   },
+
+
+
+
+
+
 
   saveAdvertisement: function(data) {
     console.log("saveAdvertisement.API.js")

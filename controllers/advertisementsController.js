@@ -5,7 +5,7 @@ const adLogic = require("../advertisementMaker/adLogic.js");
 module.exports = {
 
   findAll: function () {
-    console.log("$$$$$$$$$$$")
+    console.log("Finding a random ad to display on start")
     return db.Advertisements
       .find({})
       // .sort({ date: -1 })
