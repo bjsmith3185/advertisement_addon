@@ -19,6 +19,9 @@ module.exports = {
     return db.UserAds.create({
       company: company.company,
       keywords: company.keywords,
+      image: company.image,
+      link: company.link,
+      description: company.description,
     })
   },
   update: function (company, data) {

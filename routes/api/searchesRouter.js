@@ -23,6 +23,14 @@ router.route("/")
       .catch(err => res.status(422).json(err))
   });
 
+  router.route("/remove")
+  .delete((req, res) => {
+    console.log("detete request")
+    searches.remove()
+      .then(dbresults => res.json(dbresults))
+      .catch(err => res.status(422).json(err))
+  });
+
   router.route("/:search")
 
   .get((req, res) => {

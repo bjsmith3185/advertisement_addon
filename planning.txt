@@ -1,6 +1,33 @@
 
 Search Tracker with personalized advertisements
 
+---------------------------------------------------------
+
+
+on search page:
+
+search bar
+
+search toolbar
+    - clear all searches
+    - ????
+
+list of prev searches
+    - maybe expandable box
+
+list of searchwords: company matches
+
+
+advertisement aside box
+
+
+
+
+
+
+
+
+------------------------------------------------------
 
 new routes:
 

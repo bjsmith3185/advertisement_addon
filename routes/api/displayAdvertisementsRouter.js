@@ -8,17 +8,17 @@ const userAds = require("../../controllers/userAdsController");
 
 // Matches with "/api/advertisements"
 
-router.route("/")
-  .get((req, res) => {
-    // console.log("a request for initial random advertisement.")
-    advertisements.findAll()
-      .then(dbresults => {
-        let value = randomAd.randomizeAds(dbresults)
-        // console.log(`this is a random ad to display: ${value}`)
-        res.json(value)
-      })
-      .catch(err => res.status(422).json(err))
-  });
+// router.route("/")
+//   .get((req, res) => {
+//     // console.log("a request for initial random advertisement.")
+//     advertisements.findAll()
+//       .then(dbresults => {
+//         let value = randomAd.randomizeAds(dbresults)
+//         // console.log(`this is a random ad to display: ${value}`)
+//         res.json(value)
+//       })
+//       .catch(err => res.status(422).json(err))
+//   });
 
 
 router.route("/")

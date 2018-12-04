@@ -21,6 +21,11 @@ class Home extends Component {
             <div className="jumbotron">
               <h1>Advertisement Ad-on.</h1>
             </div>
+            <br/>
+            <br/>
+            <div className={"text-center"}>Click Search Page to begin searching.</div>
+            <br/>
+            <div className={"text-center"}>Click Admin to manage advertisements</div>
           </div>
         </div>
 

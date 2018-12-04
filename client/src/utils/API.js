@@ -4,27 +4,32 @@ import axios from "axios";
 
 export default {
   // Gets all searches
-  getSearches: function() {  // working
+  getSearches: function () {  // working
     return axios.get("/api/searches");
   },
-  
+
   // Saves a search 
-  saveSearch: function(data) {  // working
+  saveSearch: function (data) {  // working
     console.log("this is API.js saveSearch post request")
     console.log(data);
     return axios.post("/api/searches", data);
   },
 
+  // deleteSearches: function () {
+  //   console.log("deleteSearches.js.API")
+  //   return axios.delete("/api/searches/remove");
+  // },
 
-  getAdvertisement: function() {  // working
-    console.log("this is getAdvertisement.API.js");
-    return axios.get("/api/displayads")
-  },
+
+  // getAdvertisement: function () {  // working
+  //   console.log("this is getAdvertisement.API.js");
+  //   return axios.get("/api/displayads")
+  // },
 
 
-  compareSearchTermToAds: function(data) {  // working
-      console.log("checking for match:")
-      console.log(data)
+  compareSearchTermToAds: function (data) {  // working
+    console.log("checking for match:")
+    console.log(data)
     return axios.post("/api/displayads", data)
   },
 
@@ -33,7 +38,7 @@ export default {
   // },
 
 
-  checkForCustomAds: function() {  // displays ad: random or custom
+  checkForCustomAds: function () {  // displays ad: random or custom
     return axios.get("/api/displayads/check")
   },
 
@@ -43,55 +48,52 @@ export default {
 
 
 
-  saveAdvertisement: function(data) {
+  saveAdvertisement: function (data) {
     console.log("saveAdvertisement.API.js")
     console.log(data)
     return axios.put("/api/advertisements", data);
 
   },
 
-// below is ("/api/admin")
-//###########################################33
-  createNewAd: function(data) {
+  // below is ("/api/admin")
+  //###########################################33
+  createNewAd: function (data) {
     console.log("this is the new ad")
     console.log(data);
     return axios.post("/api/advertisements", data)
   },
   //##############################################
 
-  showAllAds: function() {
+  showAllAds: function () {
     return axios.get("/api/advertisements");
   },
-//#############################################
+  //#############################################
 
-deleteAd: function(company) {
-  console.log("this is the deleteAd() API.js")
-  console.log(company);
-  return axios.delete("/api/advertisements/" + company)
+  deleteAd: function (company) {
+    console.log("this is the deleteAd() API.js")
+    console.log(company);
+    return axios.delete("/api/advertisements/" + company)
 
-},
+  },
 
-updateAd: function(data, company) {
-  console.log("this is the updateAd")
-  console.log(data);
-  return axios.put("/api/advertisements/" + company, data);
-},
+  updateAd: function (data, company) {
+    console.log("this is the updateAd")
+    console.log(data);
+    return axios.put("/api/advertisements/" + company, data);
+  },
 
-  findOneAd: function(company) {
+  findOneAd: function (company) {
     console.log("this is the findOneAd")
     console.log(company);
     return axios.get("/api/advertisements/" + company);
   },
 
-  
+  //---------------------------
 
-  
-
-  
-
-//---------------------------
-
-
+  getDetails: function () {
+    console.log("getDetails");
+    return axios.get("/api/details");
+  }
 
 
   // savePersonalizedAds: function(data) {
@@ -108,7 +110,7 @@ updateAd: function(data, company) {
   //   return axios.post("api/userSearches", data)
   // },
 
- 
+
 
 };
 

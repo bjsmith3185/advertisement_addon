@@ -11,6 +11,9 @@ class NewCompany extends Component {
   state = {
     company: "",
     keywords: "",
+    image: "",
+    link: "",
+    description: "",
 
   };
 
@@ -33,12 +36,18 @@ class NewCompany extends Component {
     API.createNewAd({
       company: this.state.company,
       keywords: array,
+      image: this.state.image,
+      link: this.state.link,
+      description: this.state.description,
     })
       .then(res => {
 
         this.setState({
           company: "",
           keywords: "",
+          image: "",
+          link: "",
+          description: "",
         })
       })
       .catch(err => console.log(err));
@@ -64,12 +73,7 @@ class NewCompany extends Component {
               handleFormSubmit={this.handleFormSubmit}
             />
 
-            {/* <AdminForm
-              company={this.state.company}
-              keywords={this.state.keywords}
-              handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
-            /> */}
+
 
           </div>
         </div>

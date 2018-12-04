@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 const userAdsSchema = new Schema({
   company: { type: String},
   keywords: [String],
+  image: {type: String},
+  link: {type: String},
+  description: {type: String},
   
 });
 

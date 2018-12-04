@@ -25,9 +25,9 @@ module.exports = {
       .findOneAndUpdate({ search: search }, data, {upsert: true})
   },
 
-  remove: function (search) {
+  remove: function () {
     return db.Searches
-    .findOneAndRemove({ search: search})
+    .remove({})
   }
   
 };

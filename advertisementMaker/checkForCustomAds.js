@@ -3,6 +3,8 @@ const db = require("../models");
 const advertisementsController = require("../controllers/advertisementsController");
 const userAdsController = require("../controllers/userAdsController");
 const randomAd = require("../advertisementMaker/randomAd");
+const createComparison = require("../advertisementMaker/createComparison");
+
 
 module.exports = {
     search: function () {

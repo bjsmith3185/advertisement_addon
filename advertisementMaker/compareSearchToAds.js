@@ -2,6 +2,8 @@
 const db = require("../models");
 const advertisementsController = require("../controllers/advertisementsController");
 const userAdsController = require("../controllers/userAdsController");
+const createComparison = require("../advertisementMaker/createComparison");
+const searchMatchesController = require("../controllers/searchMatchesController");
 
 module.exports = {
     compare: function (searchWord) {
@@ -22,7 +24,28 @@ module.exports = {
                             userAdsController.create(dbresults[i])
                                 .then(result => {
                                     console.log("inserted into userAds");
-                                    resolve(result);
+                                    console.log(result)
+
+                                    let newData = {
+                                        search: word,
+                                        company: result.company,
+                                        keywords: result.keywords,
+                                    }
+                            
+
+                                    searchMatchesController.create(newData)
+
+                                    // createComparison.create(result, word)
+                                    .then(finished => {
+                                        console.log("inserted into searchMatches")
+                                        console.log(finished)
+                                        resolve(result);
+
+
+
+
+                                    })
+                                    // resolve(result);
                                 })
                         }
                     }
