@@ -1,4 +1,4 @@
-.form {
+/* .form {
   margin: 20px;
 }
 
@@ -7,4 +7,8 @@
   margin-top: 5px;
   margin-bottom: 5px;
   width: 100%;
+} */
+
+.background-area {
+  background:lightgray;
 }

@@ -1,0 +1,11 @@
+.nav-background {
+  background: black;
+}
+
+.admin-title-nav {
+ color: red;
+ margin-left: 10px;
+ margin-right: 100px;
+ font-weight: bolder;
+ font-size: 25px;
+}

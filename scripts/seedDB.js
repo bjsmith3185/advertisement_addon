@@ -47,18 +47,7 @@ const advertisementsSeed = [
   },
 ];
 
-// const searchesSeed = [
-//   {
-//     search: "books"
-//   },
-//   {
-//     search: "running"
-//   },
-// ];
 
-// const userads = [{
-
-// }];
 
 db.Advertisements
   .remove({})
@@ -72,18 +61,4 @@ db.Advertisements
     process.exit(1);
   });
 
-  // db.Searches
-  // .remove({})
-  // .then(() => db.Searches.collection.insertMany(searchesSeed))
-  // .then(data => {
-  //   console.log(data.result.n + " records inserted!");
-  //   process.exit(0);
-  // })
-  // .catch(err => {
-  //   console.error(err);
-  //   process.exit(1);
-  // });
-
-
-
-
+  

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AdminForm from "../../components/AdminForm";
 import AdminNav from "../../components/AdminNav";
-import Advertisement from "../../components/Advertisement";
 import AllAdsList from "../../components/AllAdsList";
 import API from "../../utils/API";
 
@@ -146,28 +145,7 @@ class Modify extends Component {
       })
     }
 
-
-
-
-
   };
-
-  // updateAd = (company) => {
-  //   console.log("this is the company to update: " + company)
-  //   let data = { company: company};
-  //   console.log(data)
-  //   API.updateAd(data)
-  //   .then(res => {
-  //     console.log("this is the return for updateAd")
-  //     console.log(res.data)
-  //     // this.setState({
-  //     //   allAds: res.data
-  //     // })
-  //   })
-  //   .catch(err => console.log(err));
-
-  // };
-
 
 
   render() {

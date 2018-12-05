@@ -17,12 +17,3 @@ const AllAdsList = (props) => (
 
 export default AllAdsList;
 
-{/* <ul>
-{this.state.allAds.map(company => (
-  <li key={company.company}>
-    <div>This is a company advertisement</div>
-    <div> {company.company}</div>
-   <div> {company.keywords}</div>
-  </li>
-))}
-</ul> */}

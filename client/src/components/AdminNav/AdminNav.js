@@ -1,13 +1,15 @@
 import React from "react";
-import { PromiseProvider } from "mongoose";
+import "./AdminNav.css";
 
-const AdminNav = (props) => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+const AdminNav = () => (
+  <nav className=" nav-background navbar navbar-expand-lg navbar-dark ">
 
 
     <a className="navbar-brand" href="/">Home</a>
 
-    <div>   Administration Page   </div>
+    <a className="navbar-brand" href="/search">Search</a>
+
+    <div className="admin-title-nav">   Administration Page   </div>
     <div>
       <a className="navbar-brand" href="/admin/new">New Ad</a>
 

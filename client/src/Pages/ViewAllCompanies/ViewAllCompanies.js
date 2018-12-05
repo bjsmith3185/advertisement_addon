@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import AdminForm from "../../components/AdminForm";
 import AdminNav from "../../components/AdminNav";
-import Advertisement from "../../components/Advertisement";
-import AllAdsList from "../../components/AllAdsList";
 import API from "../../utils/API";
 import List from "../../components/List";
 
@@ -11,7 +8,6 @@ class ViewAllCompanies extends Component {
 
   state = {
     allAds: [],
-
 
   };
 
@@ -45,11 +41,8 @@ class ViewAllCompanies extends Component {
 
         <div className="row">
           <div className="col-12">
-
-
             <div>
               {this.state.allAds.length ? (
-
                 <List
                   allAds={this.state.allAds}
                 />

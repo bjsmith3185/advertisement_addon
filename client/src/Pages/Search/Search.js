@@ -3,9 +3,10 @@ import Form from "../../components/Form";
 import Nav from "../../components/Nav";
 import Advertisement from "../../components/Advertisement";
 import API from "../../utils/API";
-import SearchToolBar from "../../components/SearchToolBar";
-import SearchResultsList from "../../components/SearchResultsList/SearchResultsList";
-import ComparisonBlock from "../../components/ComparisonBlock/ComparisonBlock";
+import SearchResultsList from "../../components/SearchResultsList";
+import ComparisonBlock from "../../components/ComparisonBlock";
+import AllKeywordsList from "../../components/AllKeywordsList";
+import "./search.css";
 
 
 class Search extends Component {
@@ -24,12 +25,17 @@ class Search extends Component {
     adArray: [],
 
     detailsArray: [],
+
+    info: false,
+
+    allKeywords: [],
   };
 
   componentDidMount = () => {
     this.findAd();
     this.loadSearches();
     this.matchedDetails();
+    this.createKeywordsArray();
     // this.initialShowAdvertisement();
   };
 
@@ -79,6 +85,7 @@ class Search extends Component {
         this.loadSearches();  // this updates the prev search list
         this.checkIfSearchMatchesAd(res.data.search);
         this.setState({ searchTerm: "" });
+        this.matchedDetails();
         // this.personalizedAds();
       })
       .catch(err => console.log(err));
@@ -105,11 +112,11 @@ class Search extends Component {
   };
 
   // timer to reload the advertisements
-  //  timer = setInterval(() => {
-  //   console.log("loading a new ad")
+   timer = setInterval(() => {
+    console.log("loading a new ad")
 
-  //   this.findAd();
-  // }, 5000);
+    this.findAd();
+  }, 10000);
 
   matchedDetails = () => {
 
@@ -130,6 +137,47 @@ class Search extends Component {
     console.log(this.state.previousSearches)
   }
 
+  viewDetails = () => {
+    console.log("Hello World")
+    console.log("this is the keyword array")
+    console.log(this.state.allKeywords)
+    if (this.state.info) {
+      this.setState({
+        info: false
+      })
+    } else {
+      this.setState({
+        info: true
+      })
+    }
+  };
+
+
+  createKeywordsArray = () => {
+    console.log("987654321 creating keywords array");
+
+    API.showAllAds()
+    .then(res => {
+      console.log("this is the return from array of keywords")
+      console.log(res.data)
+
+      console.log(res.data[1].keywords[0])
+
+      let keyArray = [];
+      for (var i = 0; i < res.data.length; i++) {
+        for (var k = 0; k < res.data[i].keywords.length; k++) {
+          keyArray.push(res.data[i].keywords[k])
+        }
+      }
+
+      this.setState({
+        allKeywords: keyArray
+      })
+    })
+    .catch(err => console.log(err));
+
+  };
+
   // clearHistory = () => {
   //   console.log("clearing Search History");
   //   API.deleteSearches()
@@ -143,7 +191,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="background-area">
         <Nav />
         <br />
 
@@ -154,12 +202,26 @@ class Search extends Component {
               handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
             />
+            <hr/>
           </div>
+
         </div>
 
         <div className="row">
 
           <div className="col-9">
+            <div className="info-bar" onClick={this.viewDetails}>Click to hide/show keywords details.</div>
+            <div>
+              {this.state.info ? (
+                <div>
+                  <AllKeywordsList
+                    allKeywords={this.state.allKeywords}
+                  />
+                </div>
+              ) : (
+                  <div></div>
+                )}
+            </div>
 
             {/* <SearchToolBar
               clearHistory={this.clearHistory}
@@ -169,12 +231,11 @@ class Search extends Component {
               <div className="col-5">
                 {this.state.previousSearches.length ? (
                   <div>
-                    {this.state.previousSearches.map(search => (
-                      <SearchResultsList
-                        key={search.search}
+                     <SearchResultsList
+                        // key={search}
                         previousSearches={this.state.previousSearches}
                       />
-                    ))}
+                  
                   </div>
                 ) : (
                     <h3>No searches to Display</h3>

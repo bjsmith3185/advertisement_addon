@@ -57,6 +57,19 @@ router.route("/")
       .catch(err => res.status(422).json(err))
   });
 
+  router.route("/keywords")
+  .get((req, res) => {
+    console.log("987654321 a request for all keywords.")
+    advertisements.findAll()
+      .then(dbresults => {
+        console.log("123456789 does this have keywords");
+        console.log(dbresults);
+        
+        res.json(dbresults)})
+      .catch(err => res.status(422).json(err))
+  });
+
+
 
 
 module.exports = router;

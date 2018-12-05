@@ -7,10 +7,10 @@ module.exports = {
     return db.UserAds
       .find({})
   },
-  findByAd: function (company) {
-    return db.UserAds
-      .findByAd(company)
-  },
+  // findByAd: function (company) {
+  //   return db.UserAds
+  //     .findByAd(company)
+  // },
   create: function (company) {
     // i can use the reference thing here and populate it
     // this insert will be directly from another collection
@@ -24,12 +24,12 @@ module.exports = {
       description: company.description,
     })
   },
-  update: function (company, data) {
-    return db.UserAds
-      .findOneAndUpdate({ company: company }, data)
-  },
-  remove: function (company) {
-    return db.UserAds
-    .findOneAndRemove({ company: company})
-  }
+  // update: function (company, data) {
+  //   return db.UserAds
+  //     .findOneAndUpdate({ company: company }, data)
+  // },
+  // remove: function (company) {
+  //   return db.UserAds
+  //   .findOneAndRemove({ company: company})
+  // }
 };

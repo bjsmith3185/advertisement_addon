@@ -23,7 +23,7 @@ const Advertisement = (props) => (
 
       <h3>{props.company}</h3>
       <div>
-        <img style={style.size} src={props.image} />
+        <img alt={props.company} style={style.size} src={props.image} />
       </div>
       <p>{props.description}</p>
 
@@ -36,11 +36,4 @@ const Advertisement = (props) => (
 
 export default Advertisement;
 
-// const Advertisement = (props) => (
-//  <div style={style.area}>
 
-//   <div>{props.company} wants to advertise</div>
-//  </div>
-// );
-
-// export default Advertisement;

@@ -2,7 +2,7 @@
 const db = require("../models");
 const advertisementsController = require("../controllers/advertisementsController");
 const userAdsController = require("../controllers/userAdsController");
-const createComparison = require("../advertisementMaker/createComparison");
+// const createComparison = require("../advertisementMaker/createComparison");
 const searchMatchesController = require("../controllers/searchMatchesController");
 
 module.exports = {

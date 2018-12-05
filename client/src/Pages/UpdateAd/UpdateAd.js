@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import AdminForm from "../../components/AdminForm";
 import AdminNav from "../../components/AdminNav";
-import Advertisement from "../../components/Advertisement";
-import AllAdsList from "../../components/AllAdsList";
 import API from "../../utils/API";
 
 
@@ -15,7 +12,6 @@ class UpdateAd extends Component {
     previousCompany: "",
     previousKeywords: "",
    
-
   };
 
   componentDidMount = () => {
@@ -36,14 +32,10 @@ this.Ad();
     array = this.state.keywords.split(/[ ,]+/);
     console.log("this is the keywords array");
     console.log(array)
-
-    
+ 
   };
 
-  showState = () => {
-
-  };
-
+  
   Ad = (company) => {
    
    API.findOneAd(company)
@@ -126,12 +118,7 @@ updateAd = (company) => {
               )}
 
           </div>
-
-
         </div>
-
-
-
       </div>
 
     );

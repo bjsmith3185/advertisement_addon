@@ -21,11 +21,7 @@ export default {
   // },
 
 
-  // getAdvertisement: function () {  // working
-  //   console.log("this is getAdvertisement.API.js");
-  //   return axios.get("/api/displayads")
-  // },
-
+  
 
   compareSearchTermToAds: function (data) {  // working
     console.log("checking for match:")
@@ -33,19 +29,12 @@ export default {
     return axios.post("/api/displayads", data)
   },
 
-  // getPersonalizedAds: function() {  // in process
-  //   return axios.get("/api/displayads/new")
-  // },
+  
 
 
   checkForCustomAds: function () {  // displays ad: random or custom
     return axios.get("/api/displayads/check")
   },
-
-
-
-
-
 
 
   saveAdvertisement: function (data) {
@@ -55,19 +44,17 @@ export default {
 
   },
 
-  // below is ("/api/admin")
-  //###########################################33
   createNewAd: function (data) {
     console.log("this is the new ad")
     console.log(data);
     return axios.post("/api/advertisements", data)
   },
-  //##############################################
+
 
   showAllAds: function () {
     return axios.get("/api/advertisements");
   },
-  //#############################################
+
 
   deleteAd: function (company) {
     console.log("this is the deleteAd() API.js")
@@ -88,28 +75,11 @@ export default {
     return axios.get("/api/advertisements/" + company);
   },
 
-  //---------------------------
-
+ 
   getDetails: function () {
     console.log("getDetails");
     return axios.get("/api/details");
   }
-
-
-  // savePersonalizedAds: function(data) {
-  //   return axios.post("api/userAds", data)
-  // },
-
-  // getPersonalizedSearches: function() {
-  //   return axios.get("/api/userSearches")
-  // },
-
-  // savePersonalizedSearches: function(data) {
-  //   console.log("this is the search to put into userSearches")
-  //   console.log(data)
-  //   return axios.post("api/userSearches", data)
-  // },
-
 
 
 };

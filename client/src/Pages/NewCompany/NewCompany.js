@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import AdminForm from "../../components/AdminForm";
 import AdminNav from "../../components/AdminNav";
-import Advertisement from "../../components/Advertisement";
 import API from "../../utils/API";
-import NewAdForm from "../../components/NewAdForm/NewAdForm";
+import NewAdForm from "../../components/NewAdForm";
 
 
 class NewCompany extends Component {
@@ -72,8 +70,6 @@ class NewCompany extends Component {
               handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
             />
-
-
 
           </div>
         </div>

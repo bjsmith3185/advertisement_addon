@@ -1,26 +1,27 @@
 import React, { Component } from "react";
-import Form from "../../components/Form";
 import AdminNav from "../../components/AdminNav";
-import Advertisement from "../../components/Advertisement";
-import API from "../../utils/API";
+import "./AdminHome.css";
 
 
 class AdminHome extends Component {
-
-
-
 
   render() {
     return (
       <div>
         <AdminNav />
         <br />
+        <div className="jumbotron admin-header">
+          <h1>Administration Home Page.</h1>
+        </div>
 
         <div className="row">
-          <div className="col-12">
-            <div className="jumbotron">
-              <h1>Administration Home Page.</h1>
-            </div>
+          <div className="col-2"></div>
+          <div className="col-6">
+            <p><a href="/admin/new">Add new company advertisement.</a></p>
+            <p><a href="/admin/modify">Modify/Delete/Update advertisement.</a></p>
+            <p><a href="/admin/business">View company advertisement report.</a></p>
+            <p><a href="/admin/companies">View all advertising companies.</a></p>
+            
           </div>
         </div>
 
