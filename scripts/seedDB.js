@@ -48,7 +48,7 @@ const advertisementsSeed = [
 ];
 
 
-module.exports = {
+
 
   seedDatabase = function () {
     db.Advertisements
@@ -65,7 +65,7 @@ module.exports = {
   
 
   }
-}
+
 
 
   

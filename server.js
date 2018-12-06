@@ -5,7 +5,7 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const seedDB = require("./scripts/seedDB")
+
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,9 +26,3 @@ app.listen(PORT, function() {
 });
 
 
-
-function seed() {
-  seedDB.seedDatabase();
-};
-
-seed();
