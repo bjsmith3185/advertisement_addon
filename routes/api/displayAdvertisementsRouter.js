@@ -2,7 +2,7 @@ const router = require("express").Router();
 const advertisements = require("../../controllers/advertisementsController");
 const randomAd = require("../../advertisementMaker/randomAd");
 const compareSearch = require("../../advertisementMaker/compareSearchToAds");
-const checkForCustomAds = require("../../advertisementMaker/checkForCustomAds");
+// const checkForCustomAds = require("../../advertisementMaker/checkForCustomAds");
 const userAds = require("../../controllers/userAdsController");
 
 

@@ -1,6 +1,4 @@
 const db = require("../models");
-const newAd = require("../advertisementMaker/adMaker.js");
-const adLogic = require("../advertisementMaker/adLogic.js");
 
 module.exports = {
 
