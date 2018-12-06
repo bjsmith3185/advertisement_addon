@@ -5,6 +5,8 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const seedDB = require("./scripts/seedDB")
+
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -22,3 +24,11 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/usersearches");
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+
+
+function seed() {
+  seedDB.seedDatabase();
+};
+
+seed();

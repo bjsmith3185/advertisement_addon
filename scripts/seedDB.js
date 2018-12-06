@@ -48,17 +48,24 @@ const advertisementsSeed = [
 ];
 
 
+module.exports = {
 
-db.Advertisements
-  .remove({})
-  .then(() => db.Advertisements.collection.insertMany(advertisementsSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+  seedDatabase = function () {
+    db.Advertisements
+    .remove({})
+    .then(() => db.Advertisements.collection.insertMany(advertisementsSeed))
+    .then(data => {
+      console.log(data.result.n + " records inserted!");
+      process.exit(0);
+    })
+    .catch(err => {
+      console.error(err);
+      process.exit(1);
+    });
+  
+
+  }
+}
+
 
   
