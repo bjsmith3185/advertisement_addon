@@ -26,7 +26,8 @@ class Search extends Component {
 
     detailsArray: [],
 
-    info: false,
+    keywordInfo: false,
+    userSearchInfo: true,
 
     allKeywords: [],
   };
@@ -80,13 +81,11 @@ class Search extends Component {
       search: this.state.searchTerm
     })
       .then(res => {
-        // console.log("********* is this an array?")
-        // console.log(res.data.search)
         this.loadSearches();  // this updates the prev search list
         this.checkIfSearchMatchesAd(res.data.search);
         this.setState({ searchTerm: "" });
         this.matchedDetails();
-        // this.personalizedAds();
+
       })
       .catch(err => console.log(err));
 
@@ -96,7 +95,8 @@ class Search extends Component {
   loadSearches = () => {
     API.getSearches()
       .then(res => {
-        this.setState({ previousSearches: res.data })
+        this.setState({ previousSearches: res.data });
+        this.matchedDetails();
       })
       .catch(err => console.log(err));
   };
@@ -112,7 +112,7 @@ class Search extends Component {
   };
 
   // timer to reload the advertisements
-   timer = setInterval(() => {
+  timer = setInterval(() => {
     console.log("loading a new ad")
 
     this.findAd();
@@ -132,7 +132,7 @@ class Search extends Component {
   };
 
 
-  seeInfo = () => {
+  seekeywordInfo = () => {
     console.log("this is the prev searches []")
     console.log(this.state.previousSearches)
   }
@@ -141,13 +141,26 @@ class Search extends Component {
     console.log("Hello World")
     console.log("this is the keyword array")
     console.log(this.state.allKeywords)
-    if (this.state.info) {
+    if (this.state.keywordInfo) {
       this.setState({
-        info: false
+        keywordInfo: false
       })
     } else {
       this.setState({
-        info: true
+        keywordInfo: true
+      })
+    }
+  };
+
+  viewSearchDetails = () => {
+
+    if (this.state.userSearchInfo) {
+      this.setState({
+        userSearchInfo: false
+      })
+    } else {
+      this.setState({
+        userSearchInfo: true
       })
     }
   };
@@ -157,24 +170,24 @@ class Search extends Component {
     console.log("987654321 creating keywords array");
 
     API.showAllAds()
-    .then(res => {
-      console.log("this is the return from array of keywords")
-      console.log(res.data)
+      .then(res => {
+        console.log("this is the return from array of keywords")
+        console.log(res.data)
 
-      console.log(res.data[1].keywords[0])
+        console.log(res.data[1].keywords[0])
 
-      let keyArray = [];
-      for (var i = 0; i < res.data.length; i++) {
-        for (var k = 0; k < res.data[i].keywords.length; k++) {
-          keyArray.push(res.data[i].keywords[k])
+        let keyArray = [];
+        for (var i = 0; i < res.data.length; i++) {
+          for (var k = 0; k < res.data[i].keywords.length; k++) {
+            keyArray.push(res.data[i].keywords[k])
+          }
         }
-      }
 
-      this.setState({
-        allKeywords: keyArray
+        this.setState({
+          allKeywords: keyArray
+        })
       })
-    })
-    .catch(err => console.log(err));
+      .catch(err => console.log(err));
 
   };
 
@@ -202,7 +215,7 @@ class Search extends Component {
               handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
             />
-            <hr/>
+            <hr />
           </div>
 
         </div>
@@ -210,9 +223,9 @@ class Search extends Component {
         <div className="row">
 
           <div className="col-9">
-            <div className="info-bar" onClick={this.viewDetails}>Click to hide/show keywords details.</div>
+            <div className="keywordInfo-bar" onClick={this.viewDetails}>Click to hide/show keywords details.</div>
             <div>
-              {this.state.info ? (
+              {this.state.keywordInfo ? (
                 <div>
                   <AllKeywordsList
                     allKeywords={this.state.allKeywords}
@@ -223,41 +236,59 @@ class Search extends Component {
                 )}
             </div>
 
-            {/* <SearchToolBar
-              clearHistory={this.clearHistory}
-            /> */}
+            <br/>
 
-            <div className="row">
-              <div className="col-5">
-                {this.state.previousSearches.length ? (
-                  <div>
-                     <SearchResultsList
+            <div className="userSearchInfo-bar" onClick={this.viewSearchDetails}>Click to hide/show User Search details.</div>
+
+            {this.state.userSearchInfo ? (
+
+              <div className="row">
+                <div className="col-5">
+                  {this.state.previousSearches.length ? (
+                    <div>
+               
+                      <SearchResultsList
                         // key={search}
                         previousSearches={this.state.previousSearches}
                       />
-                  
-                  </div>
-                ) : (
-                    <h3>No searches to Display</h3>
-                  )}
+
+                    </div>
+                  ) : (
+                      <h3>No searches to Display</h3>
+                    )}
+                </div>
+
+
+                {/* <div className={"col-1"}></div> */}
+
+                <div className={"col-7"}>
+
+                  {this.state.detailsArray.length ? (
+                    <ComparisonBlock
+                      detailsArray={this.state.detailsArray}
+                    />
+                  ) : (
+                      <div>No Detail keywordInfo available</div>
+                    )}
+
+                </div>
+
               </div>
 
 
-              {/* <div className={"col-1"}></div> */}
+            ) : (
 
-              <div className={"col-7"}>
+                <div></div>
+              )}
 
-                {this.state.detailsArray.length ? (
-                  <ComparisonBlock
-                    detailsArray={this.state.detailsArray}
-                  />
-                ) : (
-                    <div>No Detail info available</div>
-                  )}
 
-              </div>
 
-            </div>
+
+
+
+
+
+
           </div>
 
 

@@ -14,14 +14,7 @@ export default {
     console.log(data);
     return axios.post("/api/searches", data);
   },
-
-  // deleteSearches: function () {
-  //   console.log("deleteSearches.js.API")
-  //   return axios.delete("/api/searches/remove");
-  // },
-
-
-  
+   
 
   compareSearchTermToAds: function (data) {  // working
     console.log("checking for match:")
@@ -30,8 +23,6 @@ export default {
   },
 
   
-
-
   checkForCustomAds: function () {  // displays ad: random or custom
     return axios.get("/api/displayads/check")
   },
@@ -79,7 +70,17 @@ export default {
   getDetails: function () {
     console.log("getDetails");
     return axios.get("/api/details");
-  }
+  },
+
+  clearUserSearches: function () {
+    console.log("clear user searches")
+    return axios.delete("/api/modify");
+  },
+
+  // clearDetails: function () {
+  //   console.log("clear details")
+  //   return axios.delete("/api/modify/details");
+  // },
 
 
 };

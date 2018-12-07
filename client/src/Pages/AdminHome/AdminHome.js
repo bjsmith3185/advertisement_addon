@@ -20,6 +20,7 @@ class AdminHome extends Component {
             <p><a href="/admin/new">Add new company advertisement.</a></p>
             <p><a href="/admin/modify">Modify/Delete/Update advertisement.</a></p>
             <p><a href="/admin/business">View company advertisement report.</a></p>
+            <p><a href="/admin/searches">Modify user searches.</a></p>
             <p><a href="/admin/companies">View all advertising companies.</a></p>
             
           </div>

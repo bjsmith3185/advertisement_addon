@@ -8,6 +8,7 @@ import Search from "../src/Pages/Search";
 import UpdateAd from "../src/Pages/UpdateAd";
 import ViewAllCompanies from "./Pages/ViewAllCompanies";
 import AdminHome from "./Pages/AdminHome";
+import ModifyUserSearches from "./Pages/ModifyUserSearches";
 
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
         <Route exact path="/admin/business" component={Business} />
         <Route exact path="/admin/update" component={UpdateAd} />
         <Route exact path="/admin/companies" component={ViewAllCompanies} />
+        <Route exact path="/admin/searches" component={ModifyUserSearches} />
       </Switch>
     </div>
   </Router>

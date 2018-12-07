@@ -26,8 +26,8 @@ router.route("/")
 
     compareSearch.compare(req.body)
       .then(dbresults => {
-        console.log("$#$#$#this is the result from comparing search to ads")
-        console.log(dbresults);
+        // console.log("$#$#$#this is the result from comparing search to ads")
+        // console.log(dbresults);
         res.json(dbresults);
       })
       .catch(err => res.status(422).json(err))
@@ -50,27 +50,27 @@ router.route("/")
 
 router.route("/check")
   .get((req, res) => {
-    console.log("checking to see if a userAds array exists.")
+    // console.log("checking to see if a userAds array exists.")
     userAds.findAll()
       .then(dbresults => {
-        console.log("this tells if there is a userAd []")
-        console.log(dbresults);
+        // console.log("this tells if there is a userAd []")
+        // console.log(dbresults);
         if (dbresults.length) {
-          console.log(" this is true")
-          console.log("getting ad from custom ads")
+          // console.log(" this is true")
+          // console.log("getting ad from custom ads")
           let value = randomAd.randomizeAds(dbresults)
-          console.log(`this is a custom ad to display:`)
-          console.log(value);
+          // console.log(`this is a custom ad to display:`)
+          // console.log(value);
           res.json(value)
 
 
         } else {
-          console.log("this is false")
-          console.log("get random ad from database")
+          // console.log("this is false")
+          // console.log("get random ad from database")
           advertisements.findAll()
             .then(data => {
               let value = randomAd.randomizeAds(data)
-              console.log(`this is a random ad to display: ${value}`)
+              // console.log(`this is a random ad to display: ${value}`)
               res.json(value)
             })
             .catch(err => res.status(422).json(err))

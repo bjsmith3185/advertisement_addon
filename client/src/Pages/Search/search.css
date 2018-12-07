@@ -1,9 +1,18 @@
 
 
-.info-bar {
+.keywordInfo-bar {
     color: blue;
 }
 
-.info-bar:hover {
+.keywordInfo-bar:hover {
     color: rgb(241, 114, 241);
 }
+
+.userSearchInfo-bar {
+    color: blue;
+}
+
+.userSearchInfo-bar:hover {
+    color: rgb(241, 114, 241);
+}
+

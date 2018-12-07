@@ -10,8 +10,8 @@ module.exports = {
       .findBySearch(search)
   },
   create: function (data) {
-    console.log(`creating searchMatches entery`)
-    console.log(data)
+    // console.log(`creating searchMatches entery`)
+    // console.log(data)
     return db.SearchMatches.create({
       search: data.search,
       company: data.company,
@@ -22,8 +22,9 @@ module.exports = {
     return db.SearchMatches
       .findOneAndUpdate({ search: search }, data)
   },
-  remove: function (data) {
+
+  remove: function () {
     return db.SearchMatches
-    .findOneAndRemove({ search: data})
+    .remove({})
   }
 };

@@ -5,12 +5,14 @@ const displayAdvertisementsRoutes = require("./displayAdvertisementsRouter");
 // const userAds = require("./userAds");
 // const admin = require("./admin");
 const detailsRoutes = require("./detailsRouter");
+const modifyRoutes = require("./modifyRouter");
 
 //  routes
 router.use("/searches", searchesRoutes);
 router.use("/advertisements", advertisementsRoutes);
 router.use("/displayads", displayAdvertisementsRoutes);
 router.use("/details", detailsRoutes);
+router.use("/modify", modifyRoutes);
 
 // router.use("/userAds", userAds);
 // router.use("/admin", admin);

@@ -13,14 +13,14 @@ module.exports = {
   },
 
   create: function (data) {
-    console.log("create search")
+    // console.log("create search")
     return db.Searches
       .create(data)
   },
 
   update: function (search, data) {
-    console.log("what is in here? should be the search term")
-    console.log(search)
+    // console.log("what is in here? should be the search term")
+    // console.log(search)
     return db.Searches
       .findOneAndUpdate({ search: search }, data, {upsert: true})
   },

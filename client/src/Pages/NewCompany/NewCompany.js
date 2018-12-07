@@ -50,9 +50,13 @@ class NewCompany extends Component {
       })
       .catch(err => console.log(err));
 
+      this.redirectArticles();
+
   };
 
-
+  redirectArticles = () => {
+    this.props.history.push("/admin");
+  }
 
   render() {
     return (

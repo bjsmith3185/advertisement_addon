@@ -5,7 +5,7 @@ const db = require("../models");
 module.exports = {
 
    findAll: function (req, res) {
-   console.log("!!!!!!!!")
+  //  console.log("!!!!!!!!")
 
    db.Advertisements
       .find({})
@@ -22,28 +22,28 @@ module.exports = {
   },
   
   create: function (req, res) {
-    console.log("this is the data from the create ad");
-    console.log(req.body);
+    // console.log("this is the data from the create ad");
+    // console.log(req.body);
     db.Advertisements
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
-    console.log("this is update() in admincontroller.js")
-    console.log(req.params.company)
-    console.log(req.body)
+    // console.log("this is update() in admincontroller.js")
+    // console.log(req.params.company)
+    // console.log(req.body)
     db.Advertisements
       .findOneAndUpdate({ company: req.params.company }, req.body, {upsert:true})
       .then(dbModel => {
-        console.log("this is the return from update");
-        console.log(dbModel);
+        // console.log("this is the return from update");
+        // console.log(dbModel);
         res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
-    console.log("this is the delete()")
-    console.log(req.params.company)
+    // console.log("this is the delete()")
+    // console.log(req.params.company)
     db.Advertisements
       .deleteOne({company: req.params.company})
       .then(dbModel => res.json(dbModel))
