@@ -17,7 +17,7 @@ const AdminNav = () => (
 
       <a className="navbar-brand" href="/admin/business">Business Data</a>
 
-      <a className="navbar-brand" href="/admin/searches">Modify Searches</a>
+      <a className="navbar-brand" href="/admin/searches">Clear Searches</a>
 
       <a className="navbar-brand" href="/admin/companies">Companies</a>
 

@@ -2,6 +2,17 @@
 Search Tracker with personalized advertisements
 
 ---------------------------------------------------------
+on business details page:
+
+list of all user searchwords
+qty of all search words
+
+list of searchwords that matched keywords for each company
+
+total number of times each ad was rendered (can i include a timestamp or something?)
+
+
+
 
 
 on search page:
