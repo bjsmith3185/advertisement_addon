@@ -3,3 +3,15 @@
 .admin-header {
     background: lightgray;
 }
+
+
+.admin-p {
+    color: blue;
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+.admin-a {
+    color: blue;
+}

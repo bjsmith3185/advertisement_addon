@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import "./NewAdForm.css";
 
 const NewAdForm = (props) => (
 
   <div>
-    <h3>Enter new advertisement information in the form below.</h3>
-
     <form className="form">
-      <div>Enter the name of the Company.</div>
-      <input
+
+      <div className="newadform-label">Enter the name of the Company.</div>
+
+      <input className="newadform-input"
         value={props.company}
         name="company"
         onChange={props.handleInputChange}
@@ -17,8 +18,8 @@ const NewAdForm = (props) => (
 
       <br />
 
-      <div>Enter keywords.</div>
-      <input
+      <div className="newadform-label">Enter keywords.</div>
+      <input className="newadform-input"
         value={props.keywords}
         name="keywords"
         onChange={props.handleInputChange}
@@ -28,8 +29,8 @@ const NewAdForm = (props) => (
       />
       <br />
 
-      <div>Enter company image url.</div>
-      <input
+      <div className="newadform-label">Enter company image url.</div>
+      <input className="newadform-input"
         value={props.image}
         name="image"
         onChange={props.handleInputChange}
@@ -38,8 +39,8 @@ const NewAdForm = (props) => (
       />
       <br />
 
-      <div>Enter company url.</div>
-      <input
+      <div className="newadform-label">Enter company url.</div>
+      <input className="newadform-input"
         value={props.link}
         name="link"
         onChange={props.handleInputChange}
@@ -48,8 +49,8 @@ const NewAdForm = (props) => (
       />
       <br />
 
-      <div>Enter ad description.</div>
-      <input
+      <div className="newadform-label">Enter ad description.</div>
+      <input className="newadform-input"
         value={props.description}
         name="description"
         onChange={props.handleInputChange}
@@ -58,7 +59,7 @@ const NewAdForm = (props) => (
       />
       <br />
 
-      <button onClick={props.handleFormSubmit}>Submit</button>
+      <button className="btn btn-info" onClick={props.handleFormSubmit}>Submit</button>
     </form>
   </div>
 );

@@ -4,8 +4,8 @@ import "./List.css";
 const List = (props) => (
   <ol>
     {props.allAds.map(company => (
-      <li key={company.company}>
-        <div> {company.company} </div>
+      <li className="list-li" key={company.company}>
+        <div className="list-company"> {company.company} </div>
       </li>
     ))}
   </ol>

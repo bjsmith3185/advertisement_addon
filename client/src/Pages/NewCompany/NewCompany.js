@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AdminNav from "../../components/AdminNav";
 import API from "../../utils/API";
 import NewAdForm from "../../components/NewAdForm";
-
+import "./NewCompany.css";
 
 class NewCompany extends Component {
 
@@ -50,7 +50,7 @@ class NewCompany extends Component {
       })
       .catch(err => console.log(err));
 
-      this.redirectArticles();
+    this.redirectArticles();
 
   };
 
@@ -63,11 +63,12 @@ class NewCompany extends Component {
       <div>
         <AdminNav />
         <br />
-        <div className="jumbotron text-center">
-          <h3>Enter new advertisement information below.</h3>
+        <div className="newcompany-title text-center">
+         Enter new advertisement information below.
         </div>
 
         <div className="row">
+          <div className="col-2"></div>
           <div className="col-6">
 
             <NewAdForm

@@ -42,7 +42,7 @@ class Modify extends Component {
     let newCompany = "";
     let newKeywords = [];
 
-    if(this.state.company === "") {
+    if (this.state.company === "") {
       newCompany = this.state.previousCompany;
     } else {
       newCompany = this.state.company;
@@ -59,27 +59,27 @@ class Modify extends Component {
       keywords: newKeywords,
     }
 
-      // this updates: however, it replaces all prev keywords with the newly entered keywords. may be able to use $push to add it.
+    // this updates: however, it replaces all prev keywords with the newly entered keywords. may be able to use $push to add it.
 
     console.log(data)
     API.updateAd(data, this.state.previousCompany)
-    .then(res => {
-      console.log("this is the return for updateAd")
-      console.log(res.data)
-      this.setState({
-        allAds: "",
+      .then(res => {
+        console.log("this is the return for updateAd")
+        console.log(res.data)
+        this.setState({
+          allAds: "",
 
-        update: false,
-        company: "",
-        keywords: "",
-        previousCompany: "",
-        previousKeywords: "",
+          update: false,
+          company: "",
+          keywords: "",
+          previousCompany: "",
+          previousKeywords: "",
 
-      });
-      this.allAds();
+        });
+        this.allAds();
 
-    })
-    .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
 
   };
 
@@ -103,9 +103,8 @@ class Modify extends Component {
 
   removeAd = (company) => {
     console.log("this is the company to remove: " + company)
-    // let data = { company: company};
-    // console.log(data)
-    API.deleteAd(company)
+    
+      API.deleteAd(company)
       .then(res => {
         console.log("this is the return for removeAd")
         console.log(res.data)
@@ -114,7 +113,6 @@ class Modify extends Component {
         // })
       })
       .catch(err => console.log(err));
-
   };
 
   modifyAd = (company) => {
@@ -133,7 +131,7 @@ class Modify extends Component {
       }
     }
 
-    if(this.state.update === false) {
+    if (this.state.update === false) {
       this.setState({
         update: true
       })
@@ -164,25 +162,22 @@ class Modify extends Component {
 
             {this.state.update ? (
               <div>
-              {/* <div>Company Name: {this.state.previousCompany}</div>
-              <div>Current Keywords: {this.state.previousKeywords.join(', ')}</div> */}
-             
-              <AdminForm 
-                // title={"Enter the information to change below"}
-                previousCompany={this.state.previousCompany}
-                previousKeywords={this.state.previousKeywords}
-                company={this.state.company}
-                keywords={this.state.keywords}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-
-              />
-
-
+                <div className="row">
+                  <div className="col-2"></div>
+                  <div className="col-6">
+                    <AdminForm
+                      previousCompany={this.state.previousCompany}
+                      previousKeywords={this.state.previousKeywords}
+                      company={this.state.company}
+                      keywords={this.state.keywords}
+                      handleInputChange={this.handleInputChange}
+                      handleFormSubmit={this.handleFormSubmit}
+                    />
+                  </div>
+                </div>
               </div>
             ) : (
                 <div>
-                  <div>Update or Delete Company</div>
                   {this.state.allAds.length ? (
 
                     <AllAdsList
@@ -191,11 +186,10 @@ class Modify extends Component {
                       modifyAd={this.modifyAd}
                     />
 
-
-
                   ) : (
                       <h3>No Ads to Display</h3>
                     )}
+
                 </div>
               )}
 

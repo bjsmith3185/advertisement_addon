@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AdminNav from "../../components/AdminNav";
 import API from "../../utils/API";
 import List from "../../components/List";
-
+import "./ViewAllCompanies.css";
 
 class ViewAllCompanies extends Component {
 
@@ -37,10 +37,14 @@ class ViewAllCompanies extends Component {
         <AdminNav />
         <br />
 
-        <h1>Companies on file.</h1>
+
 
         <div className="row">
-          <div className="col-12">
+          <div className="col-2"></div>
+          <div className="col-4">
+            <h1 className="viewall-title text-center">Companies on file.</h1>
+            <div className="viewall-subtitle text-center">Total Companies: <span className="viewall-count">{this.state.allAds.length}</span></div>
+
             <div>
               {this.state.allAds.length ? (
                 <List

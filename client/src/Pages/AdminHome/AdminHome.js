@@ -17,11 +17,11 @@ class AdminHome extends Component {
         <div className="row">
           <div className="col-2"></div>
           <div className="col-6">
-            <p><a href="/admin/new">Add new company advertisement.</a></p>
-            <p><a href="/admin/modify">Modify/Delete/Update advertisement.</a></p>
-            <p><a href="/admin/business">View company advertisement report.</a></p>
-            <p><a href="/admin/searches">Modify user searches.</a></p>
-            <p><a href="/admin/companies">View all advertising companies.</a></p>
+            <p className="admin-p"><a className="admin-a" href="/admin/new">Add new company advertisement.</a></p>
+            <p className="admin-p"><a className="admin-a" href="/admin/modify">Modify/Delete/Update advertisement.</a></p>
+            <p className="admin-p"><a className="admin-a" href="/admin/business">View company advertisement report.</a></p>
+            <p className="admin-p"><a className="admin-a" href="/admin/searches">Modify user searches.</a></p>
+            <p className="admin-p"><a className="admin-a" href="/admin/companies">View all advertising companies.</a></p>
             
           </div>
         </div>
