@@ -22,6 +22,8 @@ class ModifyUserSearches extends Component {
     details: "",
     userads: "",
 
+    showResults: false,
+
   };
 
   componentDidMount = () => {
@@ -62,12 +64,20 @@ class ModifyUserSearches extends Component {
           searches: res.data.searches,
           details: res.data.details,
           userads: res.data.customads,
+          showResults: true,
         })
+
+
 
       })
       .catch(err => console.log(err));
   };
 
+  returnHome = () => {
+    this.props.history.push("/admin");
+  };
+
+  
   // clearDetails = () => {
 
   //   API.clearDetails()
@@ -94,21 +104,39 @@ class ModifyUserSearches extends Component {
         <br />
         <br />
         <div className="row">
+
           <div className="col-2"></div>
+
           <div className="col-4 text-center">
             <button className="btn btn-primary" onClick={this.clearSearches}>Clear Searches</button>
+
+            {this.state.showResults ? (
+              <div className="return">
+                <button className="btn  return-home" onClick={this.returnHome}>Admin Home</button>
+              </div>
+
+            ) : (
+                <div></div>
+              )}
+
+
           </div>
+
 
 
           <div className="col-4">
             {/* <button onClick={this.clearDetails}>Clear Match Details</button> */}
+            {this.state.showResults ? (
+              <ResetData
+                searches={this.state.searches}
+                details={this.state.details}
+                userads={this.state.userads}
+              />
+            ) : (
+                <div></div>
+              )}
 
 
-            <ResetData
-              searches={this.state.searches}
-              details={this.state.details}
-              userads={this.state.userads}
-            />
             {/* <div>
             <div>Number of user searches removed: {this.state.searches}.</div>
             <div>Number of search to ad details removed: {this.state.details}.</div>

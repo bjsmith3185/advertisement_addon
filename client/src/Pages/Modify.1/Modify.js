@@ -126,9 +126,6 @@ class Modify extends Component {
         this.setState({
           previousCompany: this.state.allAds[i].company,
           previousKeywords: this.state.allAds[i].keywords,
-
-          company: this.state.allAds[i].company,
-          keywords: this.state.allAds[i].keywords,
         })
       }
     }
@@ -157,20 +154,17 @@ class Modify extends Component {
         <AdminNav />
         <br />
 
-        {/* <div>Update or Delete Ad</div> */}
+        <div>Update or Delete Ad</div>
 
         <div className="row">
           <div className="col-12">
 
             {this.state.update ? (
               <div>
-              {/* <div>Company Name: {this.state.previousCompany}</div>
-              <div>Current Keywords: {this.state.previousKeywords.join(', ')}</div> */}
-             
+              <div>Company Name: {this.state.previousCompany}</div>
+              <div>Current Keywords: {this.state.previousKeywords.join(', ')}</div>
               <AdminForm 
                 // title={"Enter the information to change below"}
-                previousCompany={this.state.previousCompany}
-                previousKeywords={this.state.previousKeywords}
                 company={this.state.company}
                 keywords={this.state.keywords}
                 handleInputChange={this.handleInputChange}
@@ -182,7 +176,6 @@ class Modify extends Component {
               </div>
             ) : (
                 <div>
-                  <div>Update or Delete Company</div>
                   {this.state.allAds.length ? (
 
                     <AllAdsList

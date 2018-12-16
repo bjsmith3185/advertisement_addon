@@ -3,7 +3,12 @@
   padding: 10px;
 }
 
-.result-tiem {
+.result-item {
   padding-top: 10px;
   
+}
+
+.resetdata-qty {
+  font-weight: bold;
+  margin-left: 5px;
 }
