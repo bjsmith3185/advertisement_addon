@@ -7,18 +7,19 @@ const Form = (props) => (
     <div className="row">
       <div className="col-2"></div>
       <div className="col-6">
-        <h3>Enter a Search Word.</h3>
-        <form className="form">
-          <input
+        <div className="form-title">Enter a Search Word.</div>
+        {/* <form className="form"> */}
+          <input className="form-input"
             value={props.searchTerm}
             name="searchTerm"
             onChange={props.handleInputChange}
             type="text"
             placeholder="Search Word"
           />
+          <br/>
 
-          <button onClick={props.handleFormSubmit}>Submit</button>
-        </form>
+          <button className="form-btn btn btn-info" onClick={props.handleFormSubmit}>Submit</button>
+        {/* </form> */}
 
       </div>
     </div>
@@ -28,16 +29,3 @@ const Form = (props) => (
 
 export default Form;
 
-
-{/* <p>Enter a search</p>
-    <form className="form">
-      <input
-        value={props.searchTerm}
-        name="searchTerm"
-        onChange={props.handleInputChange}
-        type="text"
-        placeholder="Search Word"
-      />
-
-      <button onClick={props.handleFormSubmit}>Submit</button>
-    </form> */}

@@ -1,0 +1,20 @@
+ 
+
+.advertisement-box {
+  padding: 10px;
+  background: lightgreen;
+  border: 3px solid black;
+  margin: 5px;
+  width: 180px;
+  min-height: 350px;
+}
+
+.area {
+ background: lightgreen;
+
+}
+
+.size {
+  height: 150px;
+  width: 150px;
+}

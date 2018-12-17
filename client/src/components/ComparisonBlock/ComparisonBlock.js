@@ -5,29 +5,32 @@ import "./ComparisonBlock.css";
 
 const ComparisonBlock = (props) => (
   <div>
-    <h2 className={"text-center"}>Search to Ad Relationship.</h2>
+    <div className="comparison-title text-center">Search to Ad Relationship.</div>
     <ul>
       {props.detailsArray.map(details => (
-        <li key={details.keywords}>
+        <li key={details.keywords}
+        className="comparison-result"
+        >
           <div className="row">
             <div className="col-4 text-center">
               <div>You Searched:</div>
-              <div>{details.search}</div>
+              <div className="comparison-word">{details.search}</div>
             </div>
 
             <div className={"col-1"}></div>
 
             <div className={"col-7 text-center"}>
-            <div>Matched to:</div>
-              <div>Company: {details.company}</div>
+            <div>Search Matched:</div>
+
+              <div className="comparison-company">{details.company}</div>
               {/* <div>{details.company}</div> */}
-              <br/>
-              <div>This Company's keywords:</div>
-              <div>{details.keywords}</div>
+      
+              <div className="comparison-keywords-title">This Company's keywords:</div>
+              <div className="comparison-keywords">{details.keywords.join(', ')}</div>
             </div>
 
           </div>
-          <hr/>
+          {/* <hr/> */}
         </li>
       ))}
 

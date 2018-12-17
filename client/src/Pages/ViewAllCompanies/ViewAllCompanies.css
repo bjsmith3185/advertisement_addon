@@ -7,8 +7,18 @@
 
 .viewall-subtitle {
     font-weight: bold;
+    font-size: 18px;
 }
 
 .viewall-count {
     font-weight: bold;
+    font-size: 18px;
+}
+
+.viewall-ad {
+   margin-top: 100px;
+}
+
+.viewall-info {
+    font-size: 18px;
 }

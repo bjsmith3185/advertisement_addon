@@ -3,11 +3,12 @@ import "./SearchResultsList.css";
 
 const SearchResultsList = (props) => (
   <div>
-    <h2>Previous Searches</h2>
+    <div className="searchresultlist-title text-center">Previous Searches</div>
   <ul>
     {props.previousSearches.map(search => (
-      <li key={search.search}>
-        <div> {search.search} </div>
+      <li className="searchresult-li" 
+      key={search.search}>
+        <div className="searchresult-word"> {search.search} </div>
       </li>
     ))}
   </ul>

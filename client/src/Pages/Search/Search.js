@@ -36,8 +36,6 @@ class Search extends Component {
     this.findAd();
     this.loadSearches();
     this.matchedDetails();
-    this.createKeywordsArray();
-    // this.initialShowAdvertisement();
   };
 
   // this function will display an ad: random or custom
@@ -78,7 +76,7 @@ class Search extends Component {
     })
 
     API.saveSearch({
-      search: this.state.searchTerm
+      search: this.state.searchTerm.toLowerCase()
     })
       .then(res => {
         this.loadSearches();  // this updates the prev search list
@@ -191,16 +189,7 @@ class Search extends Component {
 
   };
 
-  // clearHistory = () => {
-  //   console.log("clearing Search History");
-  //   API.deleteSearches()
-  //     .then(result => {
-  //       console.log("all searches deleted")
-
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
+  
 
   render() {
     return (
@@ -222,7 +211,7 @@ class Search extends Component {
 
         <div className="row">
 
-          <div className="col-9">
+          <div className="col-10">
             <div className="keywordInfo-bar" onClick={this.viewDetails}>Click to hide/show keywords details.</div>
             <div>
               {this.state.keywordInfo ? (
@@ -242,10 +231,10 @@ class Search extends Component {
 
             {this.state.userSearchInfo ? (
 
-              <div className="row">
-                <div className="col-5">
+              <div className="row searchinfo-area">
+                <div className="col-4">
                   {this.state.previousSearches.length ? (
-                    <div>
+                    <div className="text-center">
                
                       <SearchResultsList
                         // key={search}
@@ -258,11 +247,8 @@ class Search extends Component {
                     )}
                 </div>
 
-
-                {/* <div className={"col-1"}></div> */}
-
-                <div className={"col-7"}>
-
+                <div className={"col-6"}>
+                    <div className="text-center">
                   {this.state.detailsArray.length ? (
                     <ComparisonBlock
                       detailsArray={this.state.detailsArray}
@@ -270,9 +256,8 @@ class Search extends Component {
                   ) : (
                       <div>No Detail keywordInfo available</div>
                     )}
-
+                    </div>
                 </div>
-
               </div>
 
 
@@ -281,20 +266,11 @@ class Search extends Component {
                 <div></div>
               )}
 
-
-
-
-
-
-
-
-
           </div>
 
-
-          <div className="col-3">
+          <div className="col-2">
             {this.state.advertisement ? (
-              <div className="text-center">
+              <div className="text-right">
 
                 <Advertisement
                   company={this.state.advertisement.company}
