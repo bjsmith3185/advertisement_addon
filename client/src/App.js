@@ -9,6 +9,7 @@ import UpdateAd from "../src/Pages/UpdateAd";
 import ViewAllCompanies from "./Pages/ViewAllCompanies";
 import AdminHome from "./Pages/AdminHome";
 import ModifyUserSearches from "./Pages/ModifyUserSearches";
+import Populate from "./Pages/Populate";
 
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
         <Route exact path="/admin/update" component={UpdateAd} />
         <Route exact path="/admin/companies" component={ViewAllCompanies} />
         <Route exact path="/admin/searches" component={ModifyUserSearches} />
+        <Route exact path="/populate" component={Populate} />
       </Switch>
     </div>
   </Router>

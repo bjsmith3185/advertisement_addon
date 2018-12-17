@@ -77,6 +77,11 @@ export default {
     return axios.delete("/api/modify");
   },
 
+
+  populateAdvertisements: function() {
+    return axios.post("/api/populate");
+  },
+
   // clearDetails: function () {
   //   console.log("clear details")
   //   return axios.delete("/api/modify/details");

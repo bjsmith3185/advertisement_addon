@@ -29,7 +29,13 @@ module.exports = {
     // console.log("removing this one: " + company)
     return db.Advertisements
     .findOneAndRemove({company: company})
-  }
+  },
+
+  removeAll: function () {
+    return db.Advertisements
+    .deleteMany({})
+      
+  },
 
 };
 
