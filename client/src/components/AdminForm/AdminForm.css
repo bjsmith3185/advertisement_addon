@@ -31,3 +31,38 @@
 .adminform-input {
 margin-left: 8px;
 }
+
+.adminform-prev-img {
+  width: 150px;
+  height: 150px;
+}
+
+
+.adminform-new-img {
+  width: 150px;
+  height: 150px;
+}
+
+.adminform-entry {
+  margin-top: 20px;
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+}
+
+.adminform-btn {
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

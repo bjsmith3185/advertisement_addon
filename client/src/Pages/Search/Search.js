@@ -36,6 +36,7 @@ class Search extends Component {
     this.findAd();
     this.loadSearches();
     this.matchedDetails();
+    this.createKeywordsArray();
   };
 
   // this function will display an ad: random or custom

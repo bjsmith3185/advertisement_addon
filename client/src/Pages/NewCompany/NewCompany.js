@@ -69,11 +69,16 @@ class NewCompany extends Component {
 
         <div className="row">
           <div className="col-2"></div>
-          <div className="col-6">
+          <div className="col-8">
 
             <NewAdForm
               handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
+
+              company={this.state.company}
+              image={this.state.image}
+              description={this.state.description}
+              link={this.state.link}
             />
 
           </div>
