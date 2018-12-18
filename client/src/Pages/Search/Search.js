@@ -228,7 +228,7 @@ class Search extends Component {
                         detailsArray={this.state.detailsArray}
                       />
                     ) : (
-                        <div>No Detail keywordInfo available</div>
+                        <div>No Detail keyword Info available</div>
                       )}
                   </div>
                 </div>
