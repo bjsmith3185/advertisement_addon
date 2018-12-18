@@ -34,8 +34,6 @@ const AllAdsList = (props) => (
         </ul>
 
       </div>
-
-
     </div>
   </div>
 

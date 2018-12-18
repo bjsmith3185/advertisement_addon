@@ -1,9 +1,8 @@
 import React from "react";
 import "./ComparisonBlock.css";
 
-// pass comparisonBlock into a .map
-
 const ComparisonBlock = (props) => (
+
   <div>
     <div className="comparison-title text-center">Search to Ad Relationship.</div>
     <ul>
@@ -21,21 +20,18 @@ const ComparisonBlock = (props) => (
 
             <div className={"col-7 text-center"}>
             <div>Search Matched:</div>
-
               <div className="comparison-company">{details.company}</div>
-              {/* <div>{details.company}</div> */}
       
               <div className="comparison-keywords-title">This Company's keywords:</div>
               <div className="comparison-keywords">{details.keywords.join(', ')}</div>
             </div>
 
           </div>
-          {/* <hr/> */}
+
         </li>
       ))}
 
     </ul>
-
   </div>
 
 );

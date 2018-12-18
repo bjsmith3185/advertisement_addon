@@ -43,8 +43,8 @@ class Search extends Component {
   findAd = () => {
     API.checkForCustomAds()
       .then(res => {
-        console.log("!!!!!! this tells if there are custom ads or not");
-        console.log(res);
+        // console.log("!!!!!! this tells if there are custom ads or not");
+        // console.log(res);
         this.setState({
           advertisement:
           {
@@ -55,12 +55,9 @@ class Search extends Component {
             description: res.data.description,
           }
         })
-
       })
       .catch(err => console.log(err));
   };
-
-
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -72,24 +69,26 @@ class Search extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    this.setState({
-      showResult: true
-    })
-
-    API.saveSearch({
-      search: this.state.searchTerm.toLowerCase()
-    })
-      .then(res => {
-        this.loadSearches();  // this updates the prev search list
-        this.checkIfSearchMatchesAd(res.data.search);
-        this.setState({ searchTerm: "" });
-        this.matchedDetails();
-
+    if (this.state.searchTerm === "") {
+      // console.log("nothing entered")
+    } else {
+      this.setState({
+        showResult: true
       })
-      .catch(err => console.log(err));
+
+      API.saveSearch({
+        search: this.state.searchTerm.toLowerCase()
+      })
+        .then(res => {
+          this.loadSearches();  // this updates the prev search list
+          this.checkIfSearchMatchesAd(res.data.search);
+          this.setState({ searchTerm: "" });
+          this.matchedDetails();
+        })
+        .catch(err => console.log(err));
+    }
 
   };
-
 
   loadSearches = () => {
     API.getSearches()
@@ -99,7 +98,6 @@ class Search extends Component {
       })
       .catch(err => console.log(err));
   };
-
 
   checkIfSearchMatchesAd = (term) => {
     let data = {
@@ -118,11 +116,10 @@ class Search extends Component {
   }, 10000);
 
   matchedDetails = () => {
-
     API.getDetails()
       .then(res => {
-        console.log("this is the return from matchedDetails")
-        console.log(res.data)
+        // console.log("this is the return from matchedDetails")
+        // console.log(res.data)
         this.setState({
           detailsArray: res.data
         })
@@ -130,16 +127,7 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
-
-  seekeywordInfo = () => {
-    console.log("this is the prev searches []")
-    console.log(this.state.previousSearches)
-  }
-
   viewDetails = () => {
-    console.log("Hello World")
-    console.log("this is the keyword array")
-    console.log(this.state.allKeywords)
     if (this.state.keywordInfo) {
       this.setState({
         keywordInfo: false
@@ -152,7 +140,6 @@ class Search extends Component {
   };
 
   viewSearchDetails = () => {
-
     if (this.state.userSearchInfo) {
       this.setState({
         userSearchInfo: false
@@ -164,33 +151,22 @@ class Search extends Component {
     }
   };
 
-
   createKeywordsArray = () => {
-    console.log("987654321 creating keywords array");
-
     API.showAllAds()
       .then(res => {
-        console.log("this is the return from array of keywords")
-        console.log(res.data)
-
-        console.log(res.data[1].keywords[0])
-
         let keyArray = [];
         for (var i = 0; i < res.data.length; i++) {
           for (var k = 0; k < res.data[i].keywords.length; k++) {
             keyArray.push(res.data[i].keywords[k])
           }
         }
-
         this.setState({
           allKeywords: keyArray
         })
       })
       .catch(err => console.log(err));
-
   };
 
-  
 
   render() {
     return (
@@ -225,9 +201,7 @@ class Search extends Component {
                   <div></div>
                 )}
             </div>
-
-            <br/>
-
+            <br />
             <div className="userSearchInfo-bar" onClick={this.viewSearchDetails}>Click to hide/show User Search details.</div>
 
             {this.state.userSearchInfo ? (
@@ -236,9 +210,8 @@ class Search extends Component {
                 <div className="col-4">
                   {this.state.previousSearches.length ? (
                     <div className="text-center">
-               
+
                       <SearchResultsList
-                        // key={search}
                         previousSearches={this.state.previousSearches}
                       />
 
@@ -249,18 +222,17 @@ class Search extends Component {
                 </div>
 
                 <div className={"col-6"}>
-                    <div className="text-center">
-                  {this.state.detailsArray.length ? (
-                    <ComparisonBlock
-                      detailsArray={this.state.detailsArray}
-                    />
-                  ) : (
-                      <div>No Detail keywordInfo available</div>
-                    )}
-                    </div>
+                  <div className="text-center">
+                    {this.state.detailsArray.length ? (
+                      <ComparisonBlock
+                        detailsArray={this.state.detailsArray}
+                      />
+                    ) : (
+                        <div>No Detail keywordInfo available</div>
+                      )}
+                  </div>
                 </div>
               </div>
-
 
             ) : (
 

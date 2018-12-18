@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import "./SearchResultsToolbar.css";
 
 const SearchResultsToolbar = (props) => (
 
-<div>
+  <div>
 
-  <div onClick={props.clearSearchHistory}>Clear Search History</div>
+    <div onClick={props.clearSearchHistory}>Clear Search History</div>
 
-</div>
+  </div>
 );
 
 export default SearchResultsToolbar;

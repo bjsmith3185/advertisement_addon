@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./AdminForm.css";
 
 const AdminForm = (props) => (
-
-
 
   <div>
     <div className="adminform-title text-center">Make changes to the advertisement below.</div>
@@ -24,10 +22,7 @@ const AdminForm = (props) => (
         </div>
       </div>
 
-      {/* <br /> */}
-
       <div className="adminform-entry">
-        {/* <div className="adminform-label">Make changes to keywords below.</div> */}
         <div className="adminform-label">Current Keywords: <span className="adminform-prop">{props.displayKeywords}</span></div>
 
         <input className="adminform-input"
@@ -38,29 +33,25 @@ const AdminForm = (props) => (
           placeholder={props.keywords}
         />
       </div>
-      {/* <br /> */}
-
 
       <div className="adminform-entry">
-        {/* <div className="adminform-label">Make changes to the image below.</div> */}
+
         <div className="row">
           <div className="col-1"></div>
 
           <div className="col-3">
-            {/* current image  */}
             <div className="text-center">Current Image</div>
-            <img className="adminform-prev-img" src={props.previousImage} />
+            <img className="adminform-prev-img" src={props.previousImage} alt={props.name} />
           </div>
 
           <div className="col-2"></div>
 
           <div className="col-3">
             <div className="text-center">New Image</div>
-            <img className="adminform-new-img" src={props.image} />
+            <img className="adminform-new-img" src={props.image} alt={props.name} />
           </div>
 
         </div>
-
 
         <input className="adminform-input"
           value={props.image}
@@ -71,7 +62,6 @@ const AdminForm = (props) => (
         />
       </div>
 
-      {/* <br /> */}
       <div className="adminform-entry">
         <div className="adminform-label">Current Website link:
          <span className="adminform-prop">{props.previousLink}</span></div>
@@ -86,7 +76,6 @@ const AdminForm = (props) => (
           />
         </div>
       </div>
-      {/* <br /> */}
 
       <div className="adminform-entry">
         <div className="adminform-label">Current Description:

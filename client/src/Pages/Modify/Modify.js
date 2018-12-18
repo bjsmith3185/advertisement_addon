@@ -10,24 +10,18 @@ class Modify extends Component {
 
   state = {
     allAds: [],
-
     company: "",
     keywords: "",
     image: "",
     link: "",
     description: "",
-
-
     previousCompany: "",
     previousKeywords: "",
     previousImage: "",
     previousLink: "",
     previousDescription: "",
-
-
     displayKeywords: "",
     update: false,
-
   };
 
   componentDidMount = () => {
@@ -43,7 +37,6 @@ class Modify extends Component {
 
   submit = event => {
     event.preventDefault();
-    console.log("submitting changes")
 
     let newCompany = "";
     let newKeywords = [];
@@ -51,47 +44,28 @@ class Modify extends Component {
     let newLink = "";
     let newDescription = "";
 
-
     if (this.state.previousKeywords === this.state.keywords) {
-      // this one has no change to keywords
-      // console.log("keywords have not changed")
-      // console.log(this.state.previousKeywords)
-      // console.log(this.state.keywords)
       newKeywords = this.state.previousKeywords
     } else {
-      // this one contains an array with modified keywords
-      // console.log("modified keywords")
-      // console.log(this.state.previousKeywords)
-      // console.log(this.state.keywords) // string
-
       newKeywords = this.state.keywords.split(/[ ,]+/);
-      // console.log("this should be an array now");
-      // console.log(array)
-
     }
 
     if (this.state.previousCompany === this.state.company) {
-      // no change in company
       newCompany = this.state.previousCompany
     } else {
-      // changed company name
+
       newCompany = this.state.company
     }
 
-
     if (this.state.previousImage === this.state.image) {
-      // no change in image
       newImage = this.state.previousImage
     } else {
-      // new image
       newImage = this.state.image
     }
 
     if (this.state.previousLink === this.state.link) {
-      // no change
       newLink = this.state.previousLink
     } else {
-      // updated link
       newLink = this.state.link
     }
 
@@ -101,30 +75,18 @@ class Modify extends Component {
       newDescription = this.state.description
     }
 
-
     let data = {
       company: newCompany,
       keywords: newKeywords,
       image: newImage,
       link: newLink,
       description: newDescription,
-
-
     }
 
-    console.log("this is the data send to the database")
-    console.log(data);
-
-    // // this updates: however, it replaces all prev keywords with the newly entered keywords. may be able to use $push to add it.
-
-    // console.log(data)
     API.updateAd(data, this.state.previousCompany)
       .then(res => {
-        console.log("this is the return for updateAd")
-        console.log(res.data)
         this.setState({
           allAds: "",
-
           update: false,
           company: "",
           keywords: "",
@@ -137,25 +99,17 @@ class Modify extends Component {
           previousLink: "",
           previousDescription: "",
           displayKeywords: "",
-
         });
         this.allAds();
         this.props.history.push({ pathname: "/admin" });
       })
       .catch(err => console.log(err));
-
-  };
-
-  showState = () => {
-
   };
 
   allAds = () => {
 
     API.showAllAds()
       .then(res => {
-        console.log("this is the return for getAllAds")
-        console.log(res.data)
         this.setState({
           allAds: res.data
         })
@@ -165,22 +119,20 @@ class Modify extends Component {
 
 
   removeAd = (company) => {
-    console.log("this is the company to remove: " + company)
 
     API.deleteAd(company)
       .then(res => {
         console.log("this is the return for removeAd")
         console.log(res.data)
-        // this.setState({
-        //   allAds: res.data
-        // })
+        this.setState({
+          allAds: res.data
+        })
+        this.props.history.push({ pathname: "/admin" });
       })
       .catch(err => console.log(err));
   };
 
   modifyAd = (company) => {
-    console.log("this is the company to modify: " + company)
-    console.log(company)
 
     for (var i = 0; i < this.state.allAds.length; i++) {
       if (company === this.state.allAds[i].company) {
@@ -198,14 +150,7 @@ class Modify extends Component {
           description: this.state.allAds[i].description,
 
           displayKeywords: this.state.allAds[i].keywords.join(', '),
-          // keywords: this.state.allAds[i].keywords,
-          // dont include anthing for image now 
-
-
         })
-
-        // create var to display keywords with a ,
-
       }
     }
 
@@ -220,7 +165,6 @@ class Modify extends Component {
         keywords: "",
         previousCompany: "",
         previousKeywords: "",
-
       })
     }
 
@@ -293,19 +237,9 @@ class Modify extends Component {
 
                 </div>
               )}
-
-
-
-
           </div>
-
-
         </div>
-
-
-
       </div>
-
     );
   };
 }

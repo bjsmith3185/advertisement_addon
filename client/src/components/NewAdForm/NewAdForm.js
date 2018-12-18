@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import "./NewAdForm.css";
-import Advertisement from "../Advertisement/Advertisement";
+import Advertisement from "../Advertisement";
 
 const NewAdForm = (props) => (
 
@@ -26,7 +26,6 @@ const NewAdForm = (props) => (
             name="keywords"
             onChange={props.handleInputChange}
             type="text"
-            // figure out how to display the current keywords in input box
             placeholder="keywords"
           />
           <br />
@@ -76,12 +75,10 @@ const NewAdForm = (props) => (
               link={props.link}
             />
 
-
           </div>
 
         </div>
       </div>
-
 
     </form>
   </div>

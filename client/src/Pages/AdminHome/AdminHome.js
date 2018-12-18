@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import AdminNav from "../../components/AdminNav";
 import "./AdminHome.css";
 
-
 class AdminHome extends Component {
 
   render() {

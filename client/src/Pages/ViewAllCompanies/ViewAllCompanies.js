@@ -18,7 +18,6 @@ class ViewAllCompanies extends Component {
     },
 
     showAdvertisement: false,
-
   };
 
   componentDidMount = () => {
@@ -77,7 +76,7 @@ class ViewAllCompanies extends Component {
                   viewAd={this.viewAd}
                 />
               ) : (
-                 <div></div>
+                  <div></div>
                 )}
             </div>
 

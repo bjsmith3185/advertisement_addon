@@ -3,30 +3,22 @@ const db = require("../models");
 module.exports = {
 
   findAll: function () {
-    // console.log("Finding a random ad to display on start")
     return db.Advertisements
       .find({})
-      // .sort({ date: -1 })
   },
   findByCompany: function (company) {
     return db.Advertisements
       .find({ company: company })
   },
   create: function (data) {
-    // console.log("advertisementsController.js.create");
-    // console.log(data);
     return db.Advertisements
       .create(data)
   },
   update: function (company, data) {
-    // console.log("companyResultsscontroller.js ")
-    // console.log(company);
-    // console.log(data);
     return db.Advertisements
       .findOneAndUpdate({ company: company }, data, {upsert: true})
   },
   remove: function (company) {
-    // console.log("removing this one: " + company)
     return db.Advertisements
     .findOneAndRemove({company: company})
   },
@@ -34,7 +26,6 @@ module.exports = {
   removeAll: function () {
     return db.Advertisements
     .deleteMany({})
-      
   },
 
 };

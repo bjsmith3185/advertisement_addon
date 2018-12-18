@@ -8,14 +8,12 @@ class UpdateAd extends Component {
   state = {
     company: "",
     keywords: "",
-
     previousCompany: "",
     previousKeywords: "",
-   
   };
 
   componentDidMount = () => {
-this.Ad();
+    this.Ad();
   };
 
   handleInputChange = event => {
@@ -25,63 +23,45 @@ this.Ad();
     });
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
 
-    let array = [];
-    array = this.state.keywords.split(/[ ,]+/);
-    console.log("this is the keywords array");
-    console.log(array)
- 
-  };
+  //   let array = [];
+  //   array = this.state.keywords.split(/[ ,]+/);
+  // };
 
-  
   Ad = (company) => {
-   
-   API.findOneAd(company)
-   .then(res => {
-    console.log("this is the return for getAllAds")
-    console.log(res.data)
-    this.setState({
-      allAds: res.data
-    })
-  })
-  .catch(err => console.log(err));
+    API.findOneAd(company)
+      .then(res => {
+        this.setState({
+          allAds: res.data
+        })
+      })
+      .catch(err => console.log(err));
   };
 
 
-removeAd = (company) => {
-  console.log("this is the company to remove: " + company)
-  let data = { company: company};
-  console.log(data)
-  API.deleteAd(data)
-  .then(res => {
-    console.log("this is the return for removeAd")
-    console.log(res.data)
-    // this.setState({
-    //   allAds: res.data
-    // })
-  })
-  .catch(err => console.log(err));
-  
-};
+  removeAd = (company) => {
+    let data = { company: company };
+    API.deleteAd(data)
+      .then(res => {
+        this.setState({
+          allAds: res.data
+        })
+      })
+      .catch(err => console.log(err));
+  };
 
-updateAd = (company) => {
-  console.log("this is the company to update: " + company)
-  let data = { company: company};
-  console.log(data)
-  API.updateAd(data)
-  .then(res => {
-    console.log("this is the return for updateAd")
-    console.log(res.data)
-    // this.setState({
-    //   allAds: res.data
-    // })
-  })
-  .catch(err => console.log(err));
-  
-};
-
+  updateAd = (company) => {
+    let data = { company: company };
+    API.updateAd(data)
+      .then(res => {
+        this.setState({
+          allAds: res.data
+        })
+      })
+      .catch(err => console.log(err));
+  };
 
 
   render() {
@@ -97,18 +77,12 @@ updateAd = (company) => {
 
             {this.state.allAds.length ? (
 
-              // <AllAdsList 
-              //     allAds={this.state.allAds}
-              //     removeAd={this.removeAd}
-              //     updateAd={this.updateAd}  
-              // />
-
               <ul>
                 {this.state.allAds.map(company => (
                   <li key={company.company}>
                     <div>This is a company advertisement</div>
                     <div> {company.company}</div>
-                   <div> {company.keywords}</div>
+                    <div> {company.keywords}</div>
                   </li>
                 ))}
               </ul>

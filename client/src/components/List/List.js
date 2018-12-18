@@ -2,6 +2,7 @@ import React from "react";
 import "./List.css";
 
 const List = (props) => (
+
   <ol>
     {props.allAds.map(company => (
       <li className="list-li" key={company.company}>
@@ -9,6 +10,7 @@ const List = (props) => (
       </li>
     ))}
   </ol>
+  
 );
 
 export default List;

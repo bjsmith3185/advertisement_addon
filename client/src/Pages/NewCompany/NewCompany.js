@@ -27,10 +27,7 @@ class NewCompany extends Component {
 
     let array = [];
     array = this.state.keywords.split(/[ ,]+/);
-    console.log("this is the keywords array");
-    console.log(array)
 
-    // API.saveAdvertisement({
     API.createNewAd({
       company: this.state.company,
       keywords: array,
@@ -47,11 +44,9 @@ class NewCompany extends Component {
           link: "",
           description: "",
         })
+        this.redirectArticles();
       })
       .catch(err => console.log(err));
-
-    this.redirectArticles();
-
   };
 
   redirectArticles = () => {
@@ -64,7 +59,7 @@ class NewCompany extends Component {
         <AdminNav />
         <br />
         <div className="newcompany-title text-center">
-         Enter new advertisement information below.
+          Enter new advertisement information below.
         </div>
 
         <div className="row">
@@ -74,7 +69,6 @@ class NewCompany extends Component {
             <NewAdForm
               handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
-
               company={this.state.company}
               image={this.state.image}
               description={this.state.description}

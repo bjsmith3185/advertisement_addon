@@ -4,7 +4,6 @@ import "./AdminNav.css";
 const AdminNav = () => (
   <nav className=" nav-background navbar navbar-expand-lg navbar-dark ">
 
-
     <a className="navbar-brand" href="/">Home</a>
 
     <a className="navbar-brand" href="/search">Search</a>
@@ -18,12 +17,11 @@ const AdminNav = () => (
 
       <a className="navbar-brand" href="/admin/business">Business Data</a>
 
-      <a className="navbar-brand" href="/admin/searches">Clear Searches</a>
-
       <a className="navbar-brand" href="/admin/companies">Companies</a>
 
-
+      <a className="navbar-brand" href="/admin/searches">Clear Searches</a>
     </div>
+    
   </nav>
 );
 

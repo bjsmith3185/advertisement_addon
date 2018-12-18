@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import API from '../../utils/API';
 
 
-
-
 export default class Populate extends React.Component {
-  state = {
-
-  }
+  
 
   populateAdvertisements = () => {
     API.populateAdvertisements()
@@ -16,22 +12,18 @@ export default class Populate extends React.Component {
         console.log(res.data)
       })
       .catch(err => console.log(err));
-  }
+  };
 
   
-
   redirectStartPage = () => {
-    this.props.history.push({
-      pathname: "/",
-      
-    });
+    this.props.history.push({pathname: "/" });
   };
 
 
   render() {
     return (
+
       <div >
-        
         <br />
         <br />
         <br />
@@ -46,6 +38,7 @@ export default class Populate extends React.Component {
         <br />
         <button onClick={this.redirectStartPage}>Back to app</button>
       </div>
+
     )
   }
 }

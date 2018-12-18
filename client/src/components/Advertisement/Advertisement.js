@@ -1,8 +1,8 @@
 import React from "react";
 import "./Advertisement.css";
 
-
 const Advertisement = (props) => (
+  
   <div className="advertisement-box text-center">
     
       <h3>{props.company}</h3>

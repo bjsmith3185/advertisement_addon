@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Form.css";
 
 const Form = (props) => (
@@ -8,7 +8,7 @@ const Form = (props) => (
       <div className="col-2"></div>
       <div className="col-6">
         <div className="form-title">Enter a Search Word.</div>
-        {/* <form className="form"> */}
+
           <input className="form-input"
             value={props.searchTerm}
             name="searchTerm"
@@ -17,9 +17,7 @@ const Form = (props) => (
             placeholder="Search Word"
           />
           <br/>
-
           <button className="form-btn btn btn-info" onClick={props.handleFormSubmit}>Submit</button>
-        {/* </form> */}
 
       </div>
     </div>
