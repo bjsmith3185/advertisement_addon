@@ -113,7 +113,7 @@ class Search extends Component {
     console.log("loading a new ad")
 
     this.findAd();
-  }, 10000);
+  }, 5000);
 
   matchedDetails = () => {
     API.getDetails()
