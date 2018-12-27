@@ -8,7 +8,7 @@ A custom user search collection is created as the user search words continue to 
 
 Advertisements are displayed on a timer which randomly selects one to display.
 
-NOTE: to populate the app with predefined advertisements once it is installed, use "http:baseURL"/populate 
+NOTE: to populate the app with predefined advertisements once it is installed, use https://ad-on.herokuapp.com/populate 
 
 
 App Layout
