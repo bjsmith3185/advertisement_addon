@@ -23,13 +23,6 @@ class UpdateAd extends Component {
     });
   };
 
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-
-  //   let array = [];
-  //   array = this.state.keywords.split(/[ ,]+/);
-  // };
-
   Ad = (company) => {
     API.findOneAd(company)
       .then(res => {

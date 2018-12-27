@@ -3,9 +3,9 @@ const advertisements = require("../../controllers/advertisementsController");
 const randomAd = require("../../advertisementMaker/randomAd");
 const compareSearch = require("../../advertisementMaker/compareSearchToAds");
 const userAds = require("../../controllers/userAdsController");
+const collectData = require("../../advertisementMaker/dataCollector");
 
-
-// Matches with "/api/advertisements"
+// Matches with "/api/displayads"
 
 router.route("/")
   .post((req, res) => {
@@ -22,11 +22,16 @@ router.route("/check")
       .then(dbresults => {
         if (dbresults.length) {
           let value = randomAd.randomizeAds(dbresults)
+          // send the ad selected to the data collector as custom ad
+
+          collectData.addToCount(value, "custom");
           res.json(value)
         } else {
           advertisements.findAll()
             .then(data => {
               let value = randomAd.randomizeAds(data)
+              // send the ad selected to the data collector as random ad
+              collectData.addToCount(value, "random");
               res.json(value)
             })
             .catch(err => res.status(422).json(err))

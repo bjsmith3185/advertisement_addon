@@ -8,7 +8,9 @@ const advertisementsSchema = new Schema({
   link: {type: String},
   description: {type: String},
   
-  
+  timesShownRandom: {type: Number},
+  timesShownCustom: {type: Number},
+
 });
 
 const Advertisements = mongoose.model("Advertisements", advertisementsSchema);

@@ -13,3 +13,7 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.list-company:hover {
+  color: purple;
+}

@@ -13,6 +13,12 @@ mongo: database = usersearches
 
 on business details page:
 
+add an entry to the advertisement document for number of times shown.
+add the keyword searched somewhere.
+already have a list of all searched words.
+
+
+---------------------------
 list of all user searchwords
 qty of all search words
 
